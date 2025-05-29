@@ -1,0 +1,36 @@
+// ====================================
+// VPC VSP
+// ====================================
+.hsp{
+  @include mq(tb) {
+    display: none;
+  }
+}
+.hpc{
+  display: none;
+  @include mq(tb) {
+    display: block;
+  }
+}
+.vsp{
+  @include mq(md) {
+    display: none;
+  }
+}
+.vsp-tb{
+  @include mq(tb) {
+    display: none;
+  }
+}
+.vtb{
+  display: none;
+  @include mq(tb) {
+    display: block;
+  }
+}
+.vpc{
+  display: none;
+  @include mq(md) {
+    display: block;
+  }
+}

@@ -1,0 +1,128 @@
+.topGallery__card{
+
+  @include mq(md){
+    width: 33.3%;
+  }
+}
+
+.galleryCard{
+  position: relative;
+}
+
+.galleryCard::before,
+.galleryCard::after{
+  content: '';
+  position: absolute;
+  background: #333;
+}
+
+.galleryCard::before{
+  height: 100%;
+  width: 1px;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.galleryCard::after{
+  top: 0;
+  transform: translateX(-50%);
+  left: 50%;
+  width: 100%;
+  height: 1px;
+}
+
+.galleryCard__link{
+  display: block;
+  padding: 8rem 10% 6rem;
+  position: relative;
+}
+
+.galleryCard__videoWrap{
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+
+  @include mq(md){
+    margin-bottom: 2rem;
+  }
+}
+
+.galleryCard__video{
+  width: 100%;
+}
+
+.galleryCard__catList{
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-bottom: 1px solid #333;
+  border-right: 1px solid #333;
+
+  @include mq(md){
+    margin-bottom: 2rem;
+  }
+}
+
+.galleryCard__cat{
+  font-size: 1.2rem;
+  padding: 0.1rem 3rem;
+  color: #333;
+}
+
+.galleryCard__cat:not(:first-of-type){
+  border-left: 1px solid #333;
+}
+
+.galleryCard__box{
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.galleryCard__box .num{
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  background: #000;
+  border-radius: 30px;
+  font-weight: 500;
+  padding: 0.2rem 1rem 0.3rem;
+  color: #fff;
+  line-height: 1;
+  display: inline-block;
+  margin-bottom: 0.6rem;
+}
+
+.galleryCard__box .ttl{
+  font-size: 1.6rem;
+  letter-spacing: 0.38em;
+  text-align: center;
+}
+
+.galleryCard__btnWrap{
+  text-align: center;
+  position: relative;
+}
+
+.galleryCard__btnWrap::after{
+  content: '';
+  position: absolute;
+  background: url();
+  height: 2.2rem;
+  width: 1rem;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: url(../../assets/img/common/icon-arrow.svg) center center / contain no-repeat;
+
+}
+
+.galleryCard__btn{
+  padding: 1rem 2rem 2.4rem 2rem;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  font-size: 1.4rem;
+  font-family: $poppins;
+  position: relative;
+}

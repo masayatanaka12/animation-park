@@ -1,0 +1,78 @@
+{
+  "name": "gulp-dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.4",
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "browser-sync": "^2.27.7",
+    "css-mqpacker": "^7.0.0",
+    "fluent-ffmpeg": "^2.1.3",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-changed": "^4.0.3",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-ejs": "^5.1.0",
+    "gulp-image-resize": "^0.13.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.1.3",
+    "gulp-sass": "^5.0.0",
+    "gulp-sass-glob": "^1.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-zip": "^5.1.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "install": "^0.13.0",
+    "sass": "^1.45.0"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ],
+  "scripts": {
+    "dev": "gulp dev",
+    "pro": "gulp pro",
+    "go": "npx gulp sass & npx gulp jsConcat & npx gulp imagemin",
+    "scss": "gulp scss",
+    "js": "gulp js",
+    "imagemin": "gulp imagemin",
+    "copy": "gulp copy"
+  },
+  "author": "",
+  "license": "ISC",
+  "gulp-config": {
+    "sizes": [
+      [
+        16,
+        16
+      ],
+      [
+        32,
+        32
+      ],
+      [
+        48,
+        48
+      ],
+      [
+        128,
+        128
+      ],
+      [
+        180,
+        180
+      ],
+      [
+        512,
+        512
+      ]
+    ]
+  }
+}

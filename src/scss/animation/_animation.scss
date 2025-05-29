@@ -1,0 +1,67 @@
+// ====================================
+// アニメーションに関わる設定
+// ====================================
+.fade{
+  &Up{
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: all 1s ease-in;
+
+    &.active{
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &Up50 {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: all 1s ease-in;
+
+    &.active {
+      opacity: 1;
+      transform: translateY(-50%);
+    }
+  }
+
+  &Mask{
+    position: relative;
+
+    img {
+      opacity: 0;
+      transform: translateY(0.4rem);
+      transition: all .4s ease-in .8s;
+    }
+
+    &::before{
+      content: '';
+      display: inline-block;
+      background: #2B2A2A;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      transition: all 1s ease-in;
+    }
+
+    &.active{
+      img {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      &::before{
+        width: 0%;
+      }
+    }
+  }
+  &In{
+    opacity: 0;
+    transition: all 1s ease-in;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}

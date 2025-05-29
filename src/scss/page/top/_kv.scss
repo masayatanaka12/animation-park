@@ -1,0 +1,22 @@
+.topKv{
+  height: 100vh;
+  position: relative;
+}
+
+.topKv__ttl{
+  font-size: 3rem;
+  color: #000;
+  position: absolute;
+  letter-spacing: 0.03em;
+  font-family: $playfair;
+  font-family: $poppins;
+
+  @include mq(md){
+    line-height: 1;
+    font-size: calcvwPc(240);
+    font-weight: 100;
+    left: calcvwPc(30);
+    top: calcvwPc(30);
+    line-height: 0.9;
+  }
+}

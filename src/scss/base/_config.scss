@@ -1,0 +1,42 @@
+// ====================================
+// Break Points
+// ====================================
+
+// breakpointの設定
+$mq-breakpoints: (xl: 90em, // 1440px
+  lg: 80em, // 1280px
+  md: 64em, // 1024px
+  tb: 48em, // 768px
+  sm: 36em, // 576px
+  xs: 25.875em // 414px
+) !default;
+
+// Media Queryの設定
+@mixin mq($breakpoint: md, $rule: min, $subtraction: false) {
+  $breakpoint: map_get($mq-breakpoints, $breakpoint);
+
+  @if $rule==max and $subtraction {
+    $breakpoint: $breakpoint - 0.0625;
+  }
+
+  @media screen and (#{$rule}-width: $breakpoint) {
+    @content;
+  }
+}
+
+// ====================================
+// VW 計算
+// ====================================
+
+$sp-design-width: 375; // SPデザインの幅を設定
+
+@function calcvw($num, $width: $sp-design-width) {
+  @return calc(100vw * $num / $width);
+}
+
+$pc-design-width: 1440; // PCデザインの幅を設定
+
+@function calcvwPc($num, $width: $pc-design-width) {
+  @return calc(100vw * $num / $width);
+}
+

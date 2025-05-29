@@ -1,0 +1,21 @@
+// リセット
+@import "base/reset";
+@import "base/color";
+@import "base/config";
+@import "base/font";
+@import "base/base";
+
+// utility
+@import "base/utility";
+
+// components
+@import "components/*";
+
+
+// page
+@import "page/*";
+@import "page/*/*";
+
+// animation
+@import "animation/animation";
+

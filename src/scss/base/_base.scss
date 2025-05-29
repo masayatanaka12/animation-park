@@ -1,0 +1,48 @@
+// ====================================
+// 共有スタイルシート
+// ====================================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  font-size: 1.6rem;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: $zen-kaku;
+  color: $c-black;
+  background: #ECEAE0;
+  font-family: $noto-sans;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+p{
+  text-align: justify;
+}
+
+li{
+  list-style: none;
+}
+
+// ====================================
+// 以下、固有のBaseスタイルシート
+// ====================================
+a{
+  color: $c-black;
+}
+
