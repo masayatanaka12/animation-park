@@ -1,3 +1,7 @@
+.topGallery{
+  background: #30493d;
+}
+
 .topGallery__card{
 
   @include mq(md){
@@ -13,7 +17,7 @@
 .galleryCard::after{
   content: '';
   position: absolute;
-  background: #30493d;
+  background: #ECEAE0;
 }
 
 .galleryCard::before{
@@ -58,9 +62,9 @@
   position: absolute;
   left: 0;
   top: 0;
-  border-bottom: 1px solid #30493d;
-  border-right: 1px solid #30493d;
-  background: #30493d;
+  border-bottom: 1px solid #ECEAE0;
+  border-right: 1px solid #ECEAE0;
+  background: #ECEAE0;
 
   @include mq(md){
     margin-bottom: 2rem;
@@ -68,14 +72,14 @@
 }
 
 .galleryCard__cat{
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
   padding: 0.1rem 3rem;
-  color: #d1ccbf;
+  color: #30493d;
 }
 
 .galleryCard__cat:not(:first-of-type){
-  border-left: 1px solid #d1ccbf;
+  border-left: 1px solid #30493d;
 }
 
 .galleryCard__box{
@@ -86,11 +90,11 @@
 .galleryCard__box .num{
   font-size: 1.2rem;
   letter-spacing: 0.1em;
-  background: #30493d;
+  background: #ECEAE0;
   border-radius: 30px;
   font-weight: 700;
-  padding: 0.2rem 1rem 0.3rem;
-  color: #d1ccbf;
+  padding: 0.2rem 1.6rem 0.3rem;
+  color: #30493d;
   line-height: 1;
   display: inline-block;
   margin-bottom: 1.2rem;
@@ -101,6 +105,7 @@
   letter-spacing: 0.38em;
   text-align: center;
   font-weight: 500;
+  color: #ECEAE0;
 }
 
 .galleryCard__btnWrap{
@@ -123,9 +128,11 @@
 
 .galleryCard__btn{
   padding: 1rem 2rem 2.4rem 2rem;
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: 0.3em;
   font-size: 1.4rem;
   font-family: $poppins;
   position: relative;
+  color: #ECEAE0;
+
 }

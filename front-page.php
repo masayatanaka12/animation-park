@@ -2,6 +2,11 @@
 
 <section class="topKv">
   <h1 class="topKv__ttl">Animation<br>park</h1>
+  <div class="topKv__txtWrap">
+    <p class="topKv__txt">
+      ホームページをちょっとおしゃれに。
+    </p>
+  </div>
 </section>
 
 <section class="topAbout">
@@ -9,6 +14,12 @@
     <h2 class="topAbout__ttl">
       About
     </h2>
+    <div class="topAbout__txtWrap">
+      <p class="topAbout__txt">
+        自分のホームページをもうちょっとおしゃれにしたいホームページオーナー様、動きのアイデアが欲しいデザイナー様、実装方法のアイデアが欲しいコーダー様向けに制作いたしました。
+        主にCSS, GSAP, three.js, WebGLに関する動きを取り上げています。
+      </p>
+    </div>
   </div>
 </section>
 

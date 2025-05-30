@@ -109,6 +109,7 @@ body {
   color: #30493d;
   background: #ECEAE0;
   font-family: "Noto Sans JP", sans-serif;
+  color: #30493d;
 }
 
 img {
@@ -141,6 +142,22 @@ a {
   display: none;
 }
 
+.footer {
+  padding: 1rem;
+  text-align: center;
+  text-align: center;
+}
+
+.footer__copy {
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.topGallery {
+  background: #30493d;
+}
+
 .galleryCard {
   position: relative;
 }
@@ -149,7 +166,7 @@ a {
 .galleryCard::after {
   content: "";
   position: absolute;
-  background: #30493d;
+  background: #ECEAE0;
 }
 
 .galleryCard::before {
@@ -195,20 +212,20 @@ a {
   position: absolute;
   left: 0;
   top: 0;
-  border-bottom: 1px solid #30493d;
-  border-right: 1px solid #30493d;
-  background: #30493d;
+  border-bottom: 1px solid #ECEAE0;
+  border-right: 1px solid #ECEAE0;
+  background: #ECEAE0;
 }
 
 .galleryCard__cat {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
   padding: 0.1rem 3rem;
-  color: #d1ccbf;
+  color: #30493d;
 }
 
 .galleryCard__cat:not(:first-of-type) {
-  border-left: 1px solid #d1ccbf;
+  border-left: 1px solid #30493d;
 }
 
 .galleryCard__box {
@@ -219,11 +236,11 @@ a {
 .galleryCard__box .num {
   font-size: 1.2rem;
   letter-spacing: 0.1em;
-  background: #30493d;
+  background: #ECEAE0;
   border-radius: 30px;
   font-weight: 700;
-  padding: 0.2rem 1rem 0.3rem;
-  color: #d1ccbf;
+  padding: 0.2rem 1.6rem 0.3rem;
+  color: #30493d;
   line-height: 1;
   display: inline-block;
   margin-bottom: 1.2rem;
@@ -234,6 +251,7 @@ a {
   letter-spacing: 0.38em;
   text-align: center;
   font-weight: 500;
+  color: #ECEAE0;
 }
 
 .galleryCard__btnWrap {
@@ -256,11 +274,44 @@ a {
 
 .galleryCard__btn {
   padding: 1rem 2rem 2.4rem 2rem;
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: 0.3em;
   font-size: 1.4rem;
   font-family: "Poppins", sans-serif;
   position: relative;
+  color: #ECEAE0;
+}
+
+.topAbout__wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[12];
+  grid-template-columns: repeat(12, 1fr);
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 10rem 0;
+}
+
+.topAbout__ttl {
+  font-size: 2rem;
+  font-weight: 500;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1/4;
+  font-family: "Poppins", sans-serif;
+}
+
+.topAbout__txtWrap {
+  -ms-grid-column: 6;
+  -ms-grid-column-span: 7;
+  grid-column: 6/13;
+}
+
+.topAbout__txt {
+  font-size: 1.6rem;
+  letter-spacing: 0.28em;
+  line-height: 2.6;
+  font-weight: 500;
 }
 
 .topGallery__cards {
@@ -269,6 +320,7 @@ a {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  border-top: #30493d solid 1px;
 }
 
 .topKv {
@@ -283,6 +335,12 @@ a {
   letter-spacing: 0.03em;
   font-family: "Playfair Display", serif;
   font-family: "Poppins", sans-serif;
+}
+
+.topKv__txtWrap {
+  position: absolute;
+  right: 5.5555555556vw;
+  bottom: 4.8611111111vw;
 }
 
 .fadeUp {
@@ -385,6 +443,11 @@ a {
     left: 2.0833333333vw;
     top: 2.0833333333vw;
     line-height: 0.9;
+  }
+  .topKv__txt {
+    font-size: 1.1111111111vw;
+    font-weight: 600;
+    letter-spacing: 0.5em;
   }
 }
 /*# sourceMappingURL=style.css.map */

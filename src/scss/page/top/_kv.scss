@@ -20,3 +20,22 @@
     line-height: 0.9;
   }
 }
+
+.topKv__txtWrap{
+  position: absolute;
+  right: calcvwPc(80);
+  bottom: calcvwPc(70);
+  
+  @include mq(md){
+    
+  }
+}
+
+.topKv__txt{
+
+  @include mq(md){
+    font-size: calcvwPc(16);
+    font-weight: 600;
+    letter-spacing: 0.5em;
+  }
+}
