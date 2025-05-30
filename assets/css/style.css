@@ -106,7 +106,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Zen Kaku Gothic New", sans-serif;
-  color: #333;
+  color: #30493d;
   background: #ECEAE0;
   font-family: "Noto Sans JP", sans-serif;
 }
@@ -126,7 +126,7 @@ li {
 }
 
 a {
-  color: #333;
+  color: #30493d;
 }
 
 .hpc {
@@ -149,7 +149,7 @@ a {
 .galleryCard::after {
   content: "";
   position: absolute;
-  background: #333;
+  background: #30493d;
 }
 
 .galleryCard::before {
@@ -195,20 +195,20 @@ a {
   position: absolute;
   left: 0;
   top: 0;
-  border-bottom: 1px solid #333;
-  border-right: 1px solid #333;
-  background: #000;
+  border-bottom: 1px solid #30493d;
+  border-right: 1px solid #30493d;
+  background: #30493d;
 }
 
 .galleryCard__cat {
   font-size: 1rem;
   font-weight: 700;
   padding: 0.1rem 3rem;
-  color: #fff;
+  color: #d1ccbf;
 }
 
 .galleryCard__cat:not(:first-of-type) {
-  border-left: 1px solid #fff;
+  border-left: 1px solid #d1ccbf;
 }
 
 .galleryCard__box {
@@ -219,20 +219,21 @@ a {
 .galleryCard__box .num {
   font-size: 1.2rem;
   letter-spacing: 0.1em;
-  background: #000;
+  background: #30493d;
   border-radius: 30px;
-  font-weight: 500;
+  font-weight: 700;
   padding: 0.2rem 1rem 0.3rem;
-  color: #fff;
+  color: #d1ccbf;
   line-height: 1;
   display: inline-block;
-  margin-bottom: 0.6rem;
+  margin-bottom: 1.2rem;
 }
 
 .galleryCard__box .ttl {
   font-size: 1.6rem;
   letter-spacing: 0.38em;
   text-align: center;
+  font-weight: 500;
 }
 
 .galleryCard__btnWrap {
@@ -277,7 +278,7 @@ a {
 
 .topKv__ttl {
   font-size: 3rem;
-  color: #000;
+  color: #30493d;
   position: absolute;
   letter-spacing: 0.03em;
   font-family: "Playfair Display", serif;

@@ -4,6 +4,14 @@
   <h1 class="topKv__ttl">Animation<br>park</h1>
 </section>
 
+<section class="topAbout">
+  <div class="topAbout__wrapper">
+    <h2 class="topAbout__ttl">
+      About
+    </h2>
+  </div>
+</section>
+
 <section class="topGallery">
   <div class="topGallery__inner">
     <ul class="topGallery__cards">
