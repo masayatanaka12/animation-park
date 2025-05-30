@@ -52,8 +52,11 @@
 }
 
 .topGallery__cards{
-  display: flex;
-  flex-wrap: wrap;
+  
+  @include mq(md){
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 .topGalleryModal__bg{

@@ -1,10 +1,11 @@
-<?php get_header() ?>
+<?php get_header(); ?>
 
 <section class="topKv">
   <h1 class="topKv__ttl">Animation<br>park</h1>
   <div class="topKv__txtWrap">
     <p class="topKv__txt">
-      ホームページをちょっとおしゃれに。
+      ホームページを、<br>
+      ちょっとおしゃれに。
     </p>
   </div>
 </section>
@@ -27,7 +28,7 @@
   <div class="topGallery__inner">
     <ul class="topGallery__cards">
       <li class="topGallery__card galleryCard">
-        <div href="#" class="galleryCard__link">
+        <div class="galleryCard__link">
           <div class="galleryCard__box">
             <span class="num">001</span>
             <p class="ttl">アニメーション</p>
@@ -43,6 +44,20 @@
               このブラウザではビデオが再生できません。
             </video>
           </div>
+          <ul class="galleryCard__tagList">
+            <li class="galleryCard__tag">
+              スタイリッシュ
+            </li>
+            <li class="galleryCard__tag">
+              ゆっくり
+            </li>
+            <li class="galleryCard__tag">
+              おしゃれ
+            </li>
+            <li class="galleryCard__tag">
+              かっこいい
+            </li>
+          </ul>
           <ul class="galleryCard__catList">
             <li class="galleryCard__cat">画像</li>
             <li class="galleryCard__cat">テスト</li>
@@ -63,73 +78,27 @@
         </div>
       </li>
       <li class="topGallery__card galleryCard">
-        <div href="#" class="galleryCard__link">
+        <div class="galleryCard__link">
           <div class="galleryCard__box">
-            <span class="num">001</span>
-            <p class="ttl">アニメーション</p>
+            <span class="num">002</span>
+            <p class="ttl">Coming soon...</p>
           </div>
           <div class="galleryCard__videoWrap">
-            <video
-              class="galleryCard__video"
-              src="<?php echo get_stylesheet_directory_uri(); ?>/assets/video/test.mp4"
-              muted
-              loop
-              preload="metadata">
-              <!-- フォールバック用 -->
-              このブラウザではビデオが再生できません。
-            </video>
-          </div>
-          <ul class="galleryCard__catList">
-            <li class="galleryCard__cat">画像</li>
-            <li class="galleryCard__cat">テスト</li>
-            <li class="galleryCard__cat">テスト</li>
-          </ul>
-          <div class="galleryCard__btnWrap">
-            <div class="galleryCard__btn galleryCard__btn--code">
-              <button>
-                コードを見る
-              </button>
-            </div>
-            <div class="galleryCard__btn galleryCard__btn--sample">
-              <button>
-                実際の動きを見る
-              </button>
+            <div class="galleryCard__videoTxt">
+              Coming soon
             </div>
           </div>
         </div>
       </li>
       <li class="topGallery__card galleryCard">
-        <div href="#" class="galleryCard__link">
+        <div class="galleryCard__link">
           <div class="galleryCard__box">
-            <span class="num">001</span>
-            <p class="ttl">アニメーション</p>
+            <span class="num">002</span>
+            <p class="ttl">Coming soon...</p>
           </div>
           <div class="galleryCard__videoWrap">
-            <video
-              class="galleryCard__video"
-              src="<?php echo get_stylesheet_directory_uri(); ?>/assets/video/test.mp4"
-              muted
-              loop
-              preload="metadata">
-              <!-- フォールバック用 -->
-              このブラウザではビデオが再生できません。
-            </video>
-          </div>
-          <ul class="galleryCard__catList">
-            <li class="galleryCard__cat">画像</li>
-            <li class="galleryCard__cat">テスト</li>
-            <li class="galleryCard__cat">テスト</li>
-          </ul>
-          <div class="galleryCard__btnWrap">
-            <div class="galleryCard__btn galleryCard__btn--code">
-              <button>
-                コードを見る
-              </button>
-            </div>
-            <div class="galleryCard__btn galleryCard__btn--sample">
-              <button>
-                実際の動きを見る
-              </button>
+            <div class="galleryCard__videoTxt">
+              <p>Coming soon</p>
             </div>
           </div>
         </div>
@@ -169,11 +138,11 @@
         </li>
       </ul>
       <div class="topGalleryModal__codeWrap">
+        <button class="copy-btn">Copy</button>
         <div class="topGalleryModal__code" data-tab="0">
           <div class="topGalleryModal__detail">
-            <button class="copy-btn">Copy</button>
             <pre>
-              <code>
+              <code class="language-html">
 &lt;li class=&quot;topGallery__card galleryCard&quot;&gt;
   &lt;div href=&quot;#&quot; class=&quot;galleryCard__link&quot;&gt;
     &lt;div class=&quot;galleryCard__box&quot;&gt;
@@ -211,7 +180,7 @@
           <div class="topGalleryModal__detail">
             <button class="copy-btn">Copy</button>
             <pre>
-              <code>
+              <code class="language-css">
 .topGalleryModal__list{
   display: flex;
   border-left: 2px solid $c-white;
@@ -235,27 +204,23 @@
             </pre>
           </div>
         </div>
+        <!-- JavaScript ブロック -->
         <div class="topGalleryModal__code" data-tab="2" style="display:none;">
           <div class="topGalleryModal__detail">
             <button class="copy-btn">Copy</button>
-            <pre>
-              <code>
+            <pre><code class="language-javascript">
+// コピー機能サンプル
 document.querySelectorAll('.copy-btn').forEach(btn => {
   btn.addEventListener('click', function() {
-    console.log('aaa')
-    // ① ボタンの親要素内の<code>を探す
     const code = btn.closest('.topGalleryModal__detail').querySelector('code');
     if (!code) return;
-
-    // ② コピー
     navigator.clipboard.writeText(code.innerText).then(() => {
       btn.innerText = 'Copied!';
       setTimeout(() => btn.innerText = 'Copy', 1200);
     });
   });
 });
-              </code>
-            </pre>
+    </code></pre>
           </div>
         </div>
       </div>

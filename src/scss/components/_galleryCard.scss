@@ -11,35 +11,22 @@
 
 .galleryCard{
   position: relative;
-  border-top: #30493d solid 1px;
+  border-top: #30493d solid 2px;
 }
 
-.galleryCard::before,
-.galleryCard::after{
-  content: '';
-  position: absolute;
-  background: #ECEAE0;
-}
+.galleryCard:not(:first-of-type){
+  border-top: 2px solid $c-white;
 
-.galleryCard::before{
-  height: 100%;
-  width: 1px;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.galleryCard::after{
-  top: 0;
-  transform: translateX(-50%);
-  left: 50%;
-  width: 100%;
-  height: 1px;
+  @include mq(md){
+    border-top: 0;
+    border-left: 2px solid $c-white;
+    
+  }
 }
 
 .galleryCard__link{
   display: block;
-  padding: 8rem 10% 6rem;
+  padding: 8rem 4% 6rem;
   position: relative;
 }
 
@@ -47,14 +34,62 @@
   display: block;
   border-radius: 10px;
   overflow: hidden;
+  margin-bottom: 0.6rem;
+  aspect-ratio: 1.5;
+  background: $c-white;
 
   @include mq(md){
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
+}
+
+.galleryCard__videoTxt{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.galleryCard__videoTxt p{
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: $c-black;
+  text-align: center;
+  line-height: 1;
 }
 
 .galleryCard__video{
   width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+
+.galleryCard__tagList{
+  margin-bottom: 4rem;
+  display: flex;
+  gap: 0.4rem 1.4rem;
+  flex-wrap: wrap;
+}
+
+.galleryCard__tag{
+  font-size: 1.2rem;
+  padding-left: 1rem;
+  color: $c-white;
+  position: relative;
+  font-weight: 500;
+}
+
+.galleryCard__tag::before{
+  position: absolute;
+  content: "#";
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  line-height: 1;
 }
 
 .galleryCard__catList{
@@ -63,8 +98,6 @@
   position: absolute;
   left: 0;
   top: 0;
-  border-bottom: 1px solid #ECEAE0;
-  border-right: 1px solid #ECEAE0;
   background: #ECEAE0;
 
   @include mq(md){
@@ -80,7 +113,7 @@
 }
 
 .galleryCard__cat:not(:first-of-type){
-  border-left: 1px solid #30493d;
+  border-left: 2px solid #30493d;
 }
 
 .galleryCard__box{
@@ -187,11 +220,16 @@
 
 .topGalleryModal__wrapper{
   overflow-x: scroll;
-  padding: 6rem 8rem;
+  padding: 6rem 4%;
   border-radius: 3px;
   height: 100%;
   clip-path: polygon(calc(100% - 60px) 0, calc(100% - 60px) 60px, 100% 60px, 100% 70%, 100% 100%, 50% 100%, 20% 100%, 0 100%, 0% 35%, 0 0);
   background: #ECEAE0;
+
+
+  @include mq(md){
+    padding: 6rem 8rem;
+  }
 
 }
 
@@ -210,13 +248,20 @@
 
 .topGalleryModal__codeWrap{
   border-radius: 0 0 3px 3px;
-  overflow: hidden;
+  position: relative;
 }
 
 .topGalleryModal__code{
   background: #30493d;
   position: relative;
+  padding: 6rem 4% 2rem;
+  overflow-x: scroll;
+  
+
+  @include mq(md){
   padding: 5rem 8% 2rem;
+    
+  }
 }
 
 .topGalleryModal__detail{
@@ -224,8 +269,13 @@
 
 .topGalleryModal__detail code{
   font-weight: 500;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: #ECEAE0;
+
+  @include mq(md){
+  font-size: 1.5rem;
+    
+  }
 }
 
 .copy-btn{
@@ -244,11 +294,12 @@
   color: $c-black;
   border-radius: 3px;
   background: $c-white;
+  z-index: 1;
 }
 
 .topGalleryModal__list{
   display: flex;
-  border-bottom: 1px solid $c-white;
+  border-bottom: 2px solid $c-white;
 }
 
 .topGalleryModal__item{
@@ -257,8 +308,8 @@
   letter-spacing: 0.1em;
   line-height: 1;
   font-size: 1.4rem;
-  border-right: 1px solid $c-white;
-  border-top: 1px solid $c-white;
+  border-right: 2px solid $c-white;
+  border-top: 2px solid $c-white;
   font-family: $poppins;
   background: $c-black;
   color: $c-white;
@@ -271,6 +322,73 @@
 }
 
 pre code {
-  white-space: pre-wrap;  /* ←自動で折り返し */
-  word-break: break-all;  /* ←単語の途中でも折り返す */
+  // white-space: pre-wrap;  /* ←自動で折り返し */
+  // word-break: break-all;  /* ←単語の途中でも折り返す */
+}
+
+.language-html,
+.language-css,
+.language-javascript{
+  background: #30493d!important;
+}
+
+code[class*="language-"], pre[class*="language-"]{
+  text-shadow: none!important;
+  color: #fff!important; /* 白色 */
+}
+.language-html {
+  background-color: #30493d; /* 深いダークグリーン */
+}
+
+/* タグ名（<section> や </section>） */
+.token.tag,
+.token.property,
+.token.function{
+  color: #FC4C3B!important;      /* Nord の “red” */
+}
+
+/* 属性名（class, id など） */
+.token.attr-name {
+  color: #97c4fb!important;      /* Nord の “blue” */
+}
+
+/* 属性値（"hoge" の中身） */
+.token.attr-value,
+.token.selector {
+  color: #b2da6e!important;      /* Nord の “green” */
+}
+
+/* 文字列リテラル ('foo' や "bar") */
+.token.string {
+  color: #ebcb8b!important;      /* Nord の “yellow” */
+}
+
+/* コメント */
+.token.comment {
+  color: #aeb0b3!important;      /* Nord の “gray” */
+  font-style: italic!important;
+}
+
+/* 予約語（if, function など） */
+.token.keyword {
+  color: #b48ead!important;      /* Nord の “purple” */
+}
+
+.token.punctuation{
+  color: #fff!important; /* 白色 */
+}
+
+code span{
+  background: transparent!important;
+  font-size: 1.4rem!important;
+
+}
+
+.token.operator{
+  color: #fff!important; /* 白色 */ 
+}
+
+.token.keyword,
+.token.number{
+  color: #b2da6e !important;
 }

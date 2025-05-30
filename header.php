@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no">
   <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.28.0/themes/prism.css" rel="stylesheet" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-V5ZKZDDJ96"></script>
@@ -27,6 +28,6 @@
 <body>
   <?php wp_body_open(); ?>
 
-<header class="header">
-  
-</header>
+  <header class="header">
+
+  </header>

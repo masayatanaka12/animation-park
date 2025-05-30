@@ -4,17 +4,19 @@
 }
 
 .topKv__ttl{
-  font-size: 3rem;
+  font-size: calcvw(60);
   color: #30493d;
   position: absolute;
   letter-spacing: 0.03em;
-  font-family: $playfair;
   font-family: $poppins;
+  font-weight: 200;
+  line-height: 1;
+  top: calcvw(20);
+  left: calcvw(14);
 
   @include mq(md){
-    line-height: 1;
-    font-size: calcvwPc(240);
     font-weight: 100;
+    font-size: calcvwPc(240);
     left: calcvwPc(30);
     top: calcvwPc(30);
     line-height: 0.9;
@@ -23,19 +25,23 @@
 
 .topKv__txtWrap{
   position: absolute;
-  right: calcvwPc(80);
-  bottom: calcvwPc(70);
+  right: calcvw(10);
+  bottom: calcvw(20);
   
   @include mq(md){
-    
+      right: calcvwPc(40);
+  bottom: calcvwPc(60);
   }
 }
 
 .topKv__txt{
+  line-height: 2;
+  font-weight: 300;
+  letter-spacing: 0.6em;
+  font-size: calcvw(14);
 
   @include mq(md){
-    font-size: calcvwPc(16);
-    font-weight: 500;
-    letter-spacing: 0.5em;
+    font-size: calcvwPc(26);
+
   }
 }
