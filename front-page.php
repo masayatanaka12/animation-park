@@ -49,12 +49,12 @@
             <li class="galleryCard__cat">テスト</li>
           </ul>
           <div class="galleryCard__btnWrap">
-            <div class="galleryCard__btn">
+            <div class="galleryCard__btn galleryCard__btn--code">
               <button>
                 コードを見る
               </button>
             </div>
-            <div class="galleryCard__btn">
+            <div class="galleryCard__btn galleryCard__btn--sample">
               <button>
                 実際の動きを見る
               </button>
@@ -85,9 +85,16 @@
             <li class="galleryCard__cat">テスト</li>
           </ul>
           <div class="galleryCard__btnWrap">
-            <button class="galleryCard__btn">
-              More
-            </button>
+            <div class="galleryCard__btn galleryCard__btn--code">
+              <button>
+                コードを見る
+              </button>
+            </div>
+            <div class="galleryCard__btn galleryCard__btn--sample">
+              <button>
+                実際の動きを見る
+              </button>
+            </div>
           </div>
         </div>
       </li>
@@ -114,103 +121,38 @@
             <li class="galleryCard__cat">テスト</li>
           </ul>
           <div class="galleryCard__btnWrap">
-            <button class="galleryCard__btn">
-              More
-            </button>
-          </div>
-        </div>
-      </li>
-      <li class="topGallery__card galleryCard">
-        <div href="#" class="galleryCard__link">
-          <div class="galleryCard__box">
-            <span class="num">001</span>
-            <p class="ttl">アニメーション</p>
-          </div>
-          <div class="galleryCard__videoWrap">
-            <video
-              class="galleryCard__video"
-              src="<?php echo get_stylesheet_directory_uri(); ?>/assets/video/test.mp4"
-              muted
-              loop
-              preload="metadata">
-              <!-- フォールバック用 -->
-              このブラウザではビデオが再生できません。
-            </video>
-          </div>
-          <ul class="galleryCard__catList">
-            <li class="galleryCard__cat">画像</li>
-            <li class="galleryCard__cat">テスト</li>
-            <li class="galleryCard__cat">テスト</li>
-          </ul>
-          <div class="galleryCard__btnWrap">
-            <button class="galleryCard__btn">
-              More
-            </button>
-          </div>
-        </div>
-      </li>
-      <li class="topGallery__card galleryCard">
-        <div href="#" class="galleryCard__link">
-          <div class="galleryCard__box">
-            <span class="num">001</span>
-            <p class="ttl">アニメーション</p>
-          </div>
-          <div class="galleryCard__videoWrap">
-            <video
-              class="galleryCard__video"
-              src="<?php echo get_stylesheet_directory_uri(); ?>/assets/video/test.mp4"
-              muted
-              loop
-              preload="metadata">
-              <!-- フォールバック用 -->
-              このブラウザではビデオが再生できません。
-            </video>
-          </div>
-          <ul class="galleryCard__catList">
-            <li class="galleryCard__cat">画像</li>
-            <li class="galleryCard__cat">テスト</li>
-            <li class="galleryCard__cat">テスト</li>
-          </ul>
-          <div class="galleryCard__btnWrap">
-            <button class="galleryCard__btn">
-              More
-            </button>
-          </div>
-        </div>
-      </li>
-      <li class="topGallery__card galleryCard">
-        <div href="#" class="galleryCard__link">
-          <div class="galleryCard__box">
-            <span class="num">001</span>
-            <p class="ttl">アニメーション</p>
-          </div>
-          <div class="galleryCard__videoWrap">
-            <video
-              class="galleryCard__video"
-              src="<?php echo get_stylesheet_directory_uri(); ?>/assets/video/test.mp4"
-              muted
-              loop
-              preload="metadata">
-              <!-- フォールバック用 -->
-              このブラウザではビデオが再生できません。
-            </video>
-          </div>
-          <ul class="galleryCard__catList">
-            <li class="galleryCard__cat">画像</li>
-            <li class="galleryCard__cat">テスト</li>
-            <li class="galleryCard__cat">テスト</li>
-          </ul>
-          <div class="galleryCard__btnWrap">
-            <button class="galleryCard__btn">
-              More
-            </button>
+            <div class="galleryCard__btn galleryCard__btn--code">
+              <button>
+                コードを見る
+              </button>
+            </div>
+            <div class="galleryCard__btn galleryCard__btn--sample">
+              <button>
+                実際の動きを見る
+              </button>
+            </div>
           </div>
         </div>
       </li>
     </ul>
   </div>
-  <div class="topGalleryModal__bg">
-
+  <div class="topGalleryModal__bg"></div>
+  <div class="topGallerySample">
+    <button class="topGallerySample__close">
+      閉じる
+    </button>
+    <div class="topGallerySample__wrapper">
+      <div class="test">
+        <div class="fadeup">コンテンツ 1</div>
+      </div>
+      <div class="test">
+        <div class="fadeup">コンテンツ 1</div>
+      </div>
+      <div class="test">
+        <div class="fadeup">コンテンツ 1</div>
+      </div>
+      <!-- 必要に応じて増やす -->
+    </div>
   </div>
   <div class="topGallery__modal topGalleryModal">
     <div class="topGalleryModal__close"></div>

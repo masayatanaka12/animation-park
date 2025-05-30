@@ -1,24 +1,6 @@
 // scroll class add
 jQuery(window).on("load scroll resize", function () {
 
-  var st = jQuery(window).scrollTop();
-  var wh = jQuery(window).height();
-  var ww = jQuery(window).width();
-
-  // fast(<1) slow(>1)
-  jQuery(".fade, .fadeMask, .fadeUp, .fadeIn, fadeAnimation").each(function (i) {
-    var tg = jQuery(this).offset().top - wh * 0.9;
-    if (st > tg) {
-      jQuery(this).addClass("active");
-    }
-  });
-
-  jQuery(".fade-up-fast").each(function (i) {
-    var tg = jQuery(this).offset().top - wh * 0.8;
-    if (st > tg) {
-      jQuery(this).addClass("active");
-    }
-  });
 
 }); // scroll class add END
 
@@ -95,5 +77,99 @@ document.querySelectorAll('.topGalleryModal__item').forEach(tab => {
     // 同じdata-tabのコードを表示
     const target = tab.getAttribute('data-tab');
     document.querySelector('.topGalleryModal__code[data-tab="' + target + '"]').style.display = 'block';
+  });
+});
+
+
+document.querySelectorAll('.galleryCard__btn--code').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelector('.topGalleryModal').classList.add('active');
+    document.querySelector('.topGalleryModal__bg').classList.add('active');
+  });
+});
+
+
+
+
+// モーダルを開く
+// モーダルを開く
+document.querySelectorAll('.galleryCard__btn--code').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    const modal = document.querySelector('.topGalleryModal');
+    const bg = document.querySelector('.topGalleryModal__bg');
+    modal.classList.remove('closing'); // 念のため外す
+    modal.classList.add('active');
+    bg.classList.add('active');
+  });
+});
+
+// モーダルを閉じる
+document.querySelectorAll('.topGalleryModal__close, .topGalleryModal__bg').forEach(function(elm) {
+  elm.addEventListener('click', function() {
+    const modal = document.querySelector('.topGalleryModal');
+    const bg = document.querySelector('.topGalleryModal__bg');
+    modal.classList.remove('active');      // 開く用クラスを外す
+    modal.classList.add('closing');        // 閉じるアニメ用クラスを付ける
+    bg.classList.remove('active');
+    // アニメーション後に.closingを外す
+    setTimeout(function() {
+      modal.classList.remove('closing');
+      // 必要ならここで display: none; をつけてもOK
+    }, 500); // 0.5s → 閉じるアニメの所要時間に合わせる
+  });
+});
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const modalSample = document.querySelector('.topGallerySample');
+  const scroller    = modalSample;                 // scroll container
+  const fadeEls     = modalSample.querySelectorAll('.fadeup');
+
+  // IntersectionObserver の設定
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    root: scroller,
+    threshold: 0.1
+  });
+
+  // アニメーション状態をリセットして再監視する関数
+  function resetAnimations() {
+    fadeEls.forEach(el => {
+      el.classList.remove('is-visible');
+      observer.observe(el);
+    });
+  }
+
+  // モーダルを開く／閉じるボタン
+  document.querySelectorAll('.galleryCard__btn--sample').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isNowOpen = modalSample.classList.toggle('active');
+      document.body.style.overflow = isNowOpen ? 'hidden' : '';
+      if (isNowOpen) {
+        // 開いた直後にリセット
+        modalSample.scrollTop = 0;
+        resetAnimations();
+      }
+    });
+  });
+
+  // モーダル内の「閉じる」ボタン
+  document.querySelectorAll('.topGallerySample__close').forEach(closeBtn => {
+    closeBtn.addEventListener('click', () => {
+      modalSample.classList.remove('active');
+      document.body.style.overflow = '';
+      // 閉じたときもリセットしておくと安心
+      modalSample.scrollTop = 0;
+      resetAnimations();
+    });
   });
 });

@@ -11,6 +11,7 @@
 
 .galleryCard{
   position: relative;
+  border-top: #30493d solid 1px;
 }
 
 .galleryCard::before,
@@ -141,7 +142,7 @@
   font-family: $poppins;
   position: relative;
   color: #ECEAE0;
-
+  cursor: pointer;
 }
 
 
@@ -215,7 +216,7 @@
 .topGalleryModal__code{
   background: #30493d;
   position: relative;
-  padding: 3rem 8% 2rem;
+  padding: 5rem 8% 2rem;
 }
 
 .topGalleryModal__detail{
