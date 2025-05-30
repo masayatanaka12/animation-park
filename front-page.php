@@ -49,9 +49,16 @@
             <li class="galleryCard__cat">テスト</li>
           </ul>
           <div class="galleryCard__btnWrap">
-            <button class="galleryCard__btn">
-              More
-            </button>
+            <div class="galleryCard__btn">
+              <button>
+                コードを見る
+              </button>
+            </div>
+            <div class="galleryCard__btn">
+              <button>
+                実際の動きを見る
+              </button>
+            </div>
           </div>
         </div>
       </li>
@@ -201,6 +208,117 @@
         </div>
       </li>
     </ul>
+  </div>
+  <div class="topGalleryModal__bg">
+
+  </div>
+  <div class="topGallery__modal topGalleryModal">
+    <div class="topGalleryModal__close"></div>
+    <div class="topGalleryModal__wrapper">
+      <ul class="topGalleryModal__list">
+        <li class="topGalleryModal__item active" data-tab="0">
+          HTML
+        </li>
+        <li class="topGalleryModal__item" data-tab="1">
+          CSS
+        </li>
+        <li class="topGalleryModal__item" data-tab="2">
+          Javascript
+        </li>
+      </ul>
+      <div class="topGalleryModal__codeWrap">
+        <div class="topGalleryModal__code" data-tab="0">
+          <div class="topGalleryModal__detail">
+            <button class="copy-btn">Copy</button>
+            <pre>
+              <code>
+&lt;li class=&quot;topGallery__card galleryCard&quot;&gt;
+  &lt;div href=&quot;#&quot; class=&quot;galleryCard__link&quot;&gt;
+    &lt;div class=&quot;galleryCard__box&quot;&gt;
+      &lt;span class=&quot;num&quot;&gt;001&lt;/span&gt;
+      &lt;p class=&quot;ttl&quot;&gt;アニメーション&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;galleryCard__videoWrap&quot;&gt;
+      &lt;video
+        class=&quot;galleryCard__video&quot;
+        src=&quot;&lt;?php echo get_stylesheet_directory_uri(); ?&gt;/assets/video/test.mp4&quot;
+        muted
+        loop
+        preload=&quot;metadata&quot;&gt;
+        &lt;!-- フォールバック用 --&gt;
+        このブラウザではビデオが再生できません。
+      &lt;/video&gt;
+    &lt;/div&gt;
+    &lt;ul class=&quot;galleryCard__catList&quot;&gt;
+      &lt;li class=&quot;galleryCard__cat&quot;&gt;画像&lt;/li&gt;
+      &lt;li class=&quot;galleryCard__cat&quot;&gt;テスト&lt;/li&gt;
+      &lt;li class=&quot;galleryCard__cat&quot;&gt;テスト&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class=&quot;galleryCard__btnWrap&quot;&gt;
+      &lt;button class=&quot;galleryCard__btn&quot;&gt;
+        More
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/li&gt;
+              </code>
+            </pre>
+          </div>
+        </div>
+        <div class="topGalleryModal__code" data-tab="1" style="display:none;">
+          <div class="topGalleryModal__detail">
+            <button class="copy-btn">Copy</button>
+            <pre>
+              <code>
+.topGalleryModal__list{
+  display: flex;
+  border-left: 2px solid $c-white;
+  border-bottom: 1px solid $c-white;
+}
+
+.topGalleryModal__item{
+  padding: 1rem 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  font-size: 1.4rem;
+  border-right: 1px solid $c-white;
+  border-top: 1px solid $c-white;
+  font-family: $poppins;
+  background: $c-black;
+  color: $c-white;
+  cursor: pointer;
+}
+              </code>
+            </pre>
+          </div>
+        </div>
+        <div class="topGalleryModal__code" data-tab="2" style="display:none;">
+          <div class="topGalleryModal__detail">
+            <button class="copy-btn">Copy</button>
+            <pre>
+              <code>
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    console.log('aaa')
+    // ① ボタンの親要素内の<code>を探す
+    const code = btn.closest('.topGalleryModal__detail').querySelector('code');
+    if (!code) return;
+
+    // ② コピー
+    navigator.clipboard.writeText(code.innerText).then(() => {
+      btn.innerText = 'Copied!';
+      setTimeout(() => btn.innerText = 'Copy', 1200);
+    });
+  });
+});
+              </code>
+            </pre>
+          </div>
+        </div>
+      </div>
+      <div class="topGalleryModal__close"></div>
+    </div>
   </div>
 </section>
 

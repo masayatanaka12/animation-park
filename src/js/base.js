@@ -66,3 +66,34 @@ document.querySelectorAll('.galleryCard__video').forEach(video => {
     video.currentTime = 0; // 先頭に戻す場合
   });
 });
+
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    console.log('aaa')
+    // ① ボタンの親要素内の<code>を探す
+    const code = btn.closest('.topGalleryModal__detail').querySelector('code');
+    if (!code) return;
+
+    // ② コピー
+    navigator.clipboard.writeText(code.innerText).then(() => {
+      btn.innerText = 'Copied!';
+      setTimeout(() => btn.innerText = 'Copy', 1200);
+    });
+  });
+});
+
+
+document.querySelectorAll('.topGalleryModal__item').forEach(tab => {
+  tab.addEventListener('click', function() {
+    // すべてのタブからactiveを外す
+    document.querySelectorAll('.topGalleryModal__item').forEach(t => t.classList.remove('active'));
+    // すべてのコードパネルを非表示に
+    document.querySelectorAll('.topGalleryModal__code').forEach(c => c.style.display = 'none');
+    
+    // クリックしたタブにactiveをつける
+    tab.classList.add('active');
+    // 同じdata-tabのコードを表示
+    const target = tab.getAttribute('data-tab');
+    document.querySelector('.topGalleryModal__code[data-tab="' + target + '"]').style.display = 'block';
+  });
+});

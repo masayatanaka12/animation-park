@@ -8,3 +8,18 @@
   border-top: #30493d solid 1px;
 }
 
+.topGalleryModal__bg{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba($color: #000000, $alpha: 0.6);
+  left: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+.topGalleryModal__close{
+  position: absolute;
+  width: 6rem;
+  height: 6rem;
+}
