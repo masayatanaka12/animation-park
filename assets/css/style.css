@@ -197,16 +197,18 @@ a {
   top: 0;
   border-bottom: 1px solid #333;
   border-right: 1px solid #333;
+  background: #000;
 }
 
 .galleryCard__cat {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  font-weight: 700;
   padding: 0.1rem 3rem;
-  color: #333;
+  color: #fff;
 }
 
 .galleryCard__cat:not(:first-of-type) {
-  border-left: 1px solid #333;
+  border-left: 1px solid #fff;
 }
 
 .galleryCard__box {
