@@ -23,9 +23,7 @@
     <div class="topAbout__txtWrap">
       <p class="topAbout__txt">
         個人的に"いいな"と感じたアニメーションを厳選して紹介しています。<br>
-        自分のホームページをもう少しおしゃれに魅せたいオーナー様、<br>
-        動きのアイデアを探しているデザイナー様やディレクター様、<br>
-        実装のヒントが欲しいコーダー様、<br>
+        自分のホームページをもう少しおしゃれに魅せたいオーナー様、<br class="vpc">動きのアイデアを探しているデザイナー様やディレクター様、<br class="vpc">実装のヒントが欲しいコーダー様、<br class="vpc">
         少しでも皆さまの制作の参考になれば幸いです。<br>
         主にCSS、GSAP、three.js、WebGLを使ったアニメーションを取り上げています。
       </p>
@@ -40,16 +38,19 @@
         <div class="galleryCard__link">
           <div class="galleryCard__box">
             <span class="num">001</span>
-            <p class="ttl">アニメーション</p>
+            <p class="ttl">マスクアニメーション</p>
           </div>
           <div class="galleryCard__videoContent">
             <button class="galleryCard__play">play</button>
             <div class="galleryCard__videoWrap">
+              <img class="galleryModal__img" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/common/sample01.png" alt="">
               <video
                 class="galleryCard__video js-video"
                 src="<?php echo get_stylesheet_directory_uri(); ?>/assets/video/test.mp4"
                 muted
                 loop
+                playsinline
+                webkit-playsinline
                 preload="metadata">
                 <!-- フォールバック用 -->
                 このブラウザではビデオが再生できません。
@@ -72,8 +73,7 @@
           </ul>
           <ul class="galleryCard__catList">
             <li class="galleryCard__cat">画像</li>
-            <li class="galleryCard__cat">テスト</li>
-            <li class="galleryCard__cat">テスト</li>
+            <li class="galleryCard__cat">mask image</li>
           </ul>
           <div class="galleryCard__btnWrap">
             <div class="galleryCard__btn galleryCard__btn--code">
@@ -125,9 +125,9 @@
       <div class="topGalleryModal__info">
         <div class="topGalleryModal__header">
           <span class="num">001</span>
-          <p class="ttl">アニメーション</p>
+          <p class="ttl">マスクアニメーション</p>
           <ul class="tags">
-            <li class="tag">スタイリッシュ</li>
+            <li class="tag">高級感</li>
             <li class="tag">おしゃれ</li>
             <li class="tag">かっこいい</li>
           </ul>
@@ -138,11 +138,15 @@
               play
             </button>
             <div class="galleryModal__videoWrap">
+              <img class="galleryModal__img" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/common/sample01.png" alt="">
               <video
-                class="galleryModal__video js-video"
+                class=" galleryModal__video js-video"
+                poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/common/sample01.jpg"
                 src="<?php echo get_stylesheet_directory_uri(); ?>/assets/video/test.mp4"
                 muted
                 loop
+                playsinline
+                webkit-playsinline
                 preload="metadata">
                 <!-- フォールバック用 -->
                 このブラウザではビデオが再生できません。
@@ -150,7 +154,7 @@
             </div>
           </div>
           <div class="topGalleryModal__sample galleryCard__btn--sample">
-            <a href="<?php echo esc_url(home_url()); ?>/sample01/">
+            <a href="<?php echo esc_url(home_url()); ?>/sample01/" target="_blank" rel="noopener">
               実際の動きを見る
             </a>
           </div>
@@ -168,67 +172,75 @@
         </li>
       </ul>
       <div class="topGalleryModal__codeWrap">
-        <button class="copy-btn">Copy</button>
+        <button class="copy-btn vpc">Copy</button>
         <div class="topGalleryModal__code" data-tab="0">
           <div class="topGalleryModal__detail">
             <pre>
               <code class="language-html">
-&lt;li class=&quot;topGallery__card galleryCard&quot;&gt;
-  &lt;div href=&quot;#&quot; class=&quot;galleryCard__link&quot;&gt;
-    &lt;div class=&quot;galleryCard__box&quot;&gt;
-      &lt;span class=&quot;num&quot;&gt;001&lt;/span&gt;
-      &lt;p class=&quot;ttl&quot;&gt;アニメーション&lt;/p&gt;
+&lt;div class="sample01"&gt;
+  &lt;div class="sample01__imgWrap"&gt;
+    &lt;div class="sample01__img"&gt;
+      &lt;img src="http://animation-park.com/wp-content/uploads/2025/05/dandelion.jpg" alt=""&gt;
     &lt;/div&gt;
-    &lt;div class=&quot;galleryCard__videoWrap&quot;&gt;
-      &lt;video
-        class=&quot;galleryCard__video&quot;
-        src=&quot;&lt;?php echo get_stylesheet_directory_uri(); ?&gt;/assets/video/test.mp4&quot;
-        muted
-        loop
-        preload=&quot;metadata&quot;&gt;
-        &lt;!-- フォールバック用 --&gt;
-        このブラウザではビデオが再生できません。
-      &lt;/video&gt;
+    &lt;div class="sample01__img"&gt;
+      &lt;img src="http://animation-park.com/wp-content/uploads/2025/05/flower.jpg" alt=""&gt;
     &lt;/div&gt;
-    &lt;ul class=&quot;galleryCard__catList&quot;&gt;
-      &lt;li class=&quot;galleryCard__cat&quot;&gt;画像&lt;/li&gt;
-      &lt;li class=&quot;galleryCard__cat&quot;&gt;テスト&lt;/li&gt;
-      &lt;li class=&quot;galleryCard__cat&quot;&gt;テスト&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;div class=&quot;galleryCard__btnWrap&quot;&gt;
-      &lt;button class=&quot;galleryCard__btn&quot;&gt;
-        More
-      &lt;/button&gt;
+    &lt;div class="sample01__img"&gt;
+      &lt;img src="http://animation-park.com/wp-content/uploads/2025/05/palmtree.jpg" alt=""&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/li&gt;
+&lt;/div&gt;
               </code>
             </pre>
           </div>
         </div>
         <div class="topGalleryModal__code" data-tab="1" style="display:none;">
           <div class="topGalleryModal__detail">
-            <button class="copy-btn">Copy</button>
+            <button class="copy-btn vpc">Copy</button>
             <pre>
               <code class="language-css">
-.topGalleryModal__list{
-  display: flex;
-  border-left: 2px solid $c-white;
-  border-bottom: 1px solid $c-white;
+.sample01__imgWrap{
+  display: grid;
+  gap: 80px;
+}
+.sample01__imgWrap{
+  display: grid;
+  gap: 80px;
 }
 
-.topGalleryModal__item{
-  padding: 1rem 1.6rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  line-height: 1;
-  font-size: 1.4rem;
-  border-right: 1px solid $c-white;
-  border-top: 1px solid $c-white;
-  font-family: $poppins;
-  background: $c-black;
-  color: $c-white;
-  cursor: pointer;
+.sample01__img {
+  max-width: 600px;
+  margin: auto;
+
+  mask-image: linear-gradient(135deg,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0)   70%,
+    rgba(0, 0, 0, 0)   100%);
+  -webkit-mask-image: linear-gradient(135deg,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0)   70%,
+    rgba(0, 0, 0, 0)   100%);
+  mask-size: 200% 200%;
+  -webkit-mask-size: 200% 200%;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: 140% 140%;
+  -webkit-mask-position: 140% 140%;
+}
+
+.sample01__img.js-mask-animation {
+  animation: img-mask-animation 1.3s linear forwards;
+}
+
+@keyframes img-mask-animation {
+  0% {
+    mask-position: 140% 140%;
+    -webkit-mask-position: 140% 140%;
+  }
+  100% {
+    mask-position: 0 0;
+    -webkit-mask-position: 0 0;
+  }
 }
               </code>
             </pre>
@@ -237,17 +249,28 @@
         <!-- JavaScript ブロック -->
         <div class="topGalleryModal__code" data-tab="2" style="display:none;">
           <div class="topGalleryModal__detail">
-            <button class="copy-btn">Copy</button>
+            <button class="copy-btn vpc">Copy</button>
             <pre><code class="language-javascript">
-// コピー機能サンプル
-document.querySelectorAll('.copy-btn').forEach(btn => {
-  btn.addEventListener('click', function() {
-    const code = btn.closest('.topGalleryModal__detail').querySelector('code');
-    if (!code) return;
-    navigator.clipboard.writeText(code.innerText).then(() => {
-      btn.innerText = 'Copied!';
-      setTimeout(() => btn.innerText = 'Copy', 1200);
+document.addEventListener('DOMContentLoaded', () => {
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.3
+  };
+
+  const callback = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('js-mask-animation');
+        observer.unobserve(entry.target);
+      }
     });
+  };
+
+  const observer = new IntersectionObserver(callback, options);
+
+  document.querySelectorAll('.sample01__img').forEach(elm => {
+    observer.observe(elm);
   });
 });
     </code></pre>

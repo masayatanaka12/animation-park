@@ -50,21 +50,45 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ▼ Playボタンを押したら先頭から再生（SP向けも含む）
-  document.querySelectorAll('.galleryCard__play').forEach(button => {
-    const video = button.parentElement.querySelector('.js-video');
-    if (!video) return;
+document.querySelectorAll('.galleryCard__play').forEach(button => {
+  const container = button.parentElement; // .galleryModal__videoContent
+  const video     = container.querySelector('.js-video');
+  const img       = container.querySelector('.galleryModal__img');
+  if (!video) return;
 
-    button.addEventListener('click', () => {
-      // クリックのたびに先頭に戻して再生
-      video.currentTime = 0;
-      video.play();
-    });
+  button.addEventListener('click', () => {
+    // 画像を非表示にする
+    if (img) {
+      img.style.display = 'none';
+    }
+
+    // 動画を先頭に戻して再生
+    video.currentTime = 0;
+    video.play();
   });
+});
+document.querySelectorAll('.galleryModal__play').forEach(button => {
+  const container = button.parentElement; // .galleryModal__videoContent
+  const video     = container.querySelector('.js-video');
+  const img       = container.querySelector('.galleryModal__img');
+  if (!video) return;
+
+  button.addEventListener('click', () => {
+    // 画像を非表示にする
+    if (img) {
+      img.style.display = 'none';
+    }
+
+    // 動画を先頭に戻して再生
+    video.currentTime = 0;
+    video.play();
+  });
+});
+
 });
 
 document.querySelectorAll('.copy-btn').forEach(btn => {
   btn.addEventListener('click', function() {
-    console.log('aaa')
     // ① ボタンの親要素内の<code>を探す
     const code = btn.closest('.topGalleryModal__detail').querySelector('code');
     if (!code) return;
@@ -76,6 +100,7 @@ document.querySelectorAll('.copy-btn').forEach(btn => {
     });
   });
 });
+
 
 
 document.querySelectorAll('.topGalleryModal__item').forEach(tab => {
@@ -148,7 +173,6 @@ document.querySelectorAll('.topGalleryModal__close, .topGalleryModal__bg').forEa
 document.addEventListener('DOMContentLoaded', () => {
   const modalSample = document.querySelector('.topGallerySample');
   const scroller    = modalSample;                 // scroll container
-  const fadeEls     = modalSample.querySelectorAll('.fadeup');
 
   // IntersectionObserver の設定
   const observer = new IntersectionObserver((entries, obs) => {
@@ -202,13 +226,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const options = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.1
+    threshold: 0.3
   };
 
   const callback = (entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('js-mask');
+        entry.target.classList.add('js-mask-animation');
         observer.unobserve(entry.target);
       }
     });

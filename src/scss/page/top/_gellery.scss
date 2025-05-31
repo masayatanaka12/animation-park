@@ -164,14 +164,14 @@
   height: 100vh;
 }
 
-.sample01__content{
-  padding: 0 2rem 200px;
+.sample01{
+  padding: 0 2rem 80px;
 }
 
 
 .sample01__imgWrap{
   display: grid;
-  gap: 200px;
+  gap: 100px;
 }
 
 .sample01__img {
@@ -194,13 +194,11 @@
   -webkit-mask-position: 140% 140%;
 }
 
-
-/* ビューに入った時に .js-mask クラスを付与してアニメーションを開始 */
-.sample01__img.js-mask {
-   animation: mask-animation 1.3s linear forwards;
+.sample01__img.js-mask-animation {
+  animation: img-mask-animation 1.3s linear forwards;
 }
 
-@keyframes mask-animation {
+@keyframes img-mask-animation {
   0% {
     mask-position: 140% 140%;
     -webkit-mask-position: 140% 140%;
@@ -278,39 +276,3 @@
 
 
 
-
-
- .container {
-    width: 100px;
-    height: 100px;
-    margin: 20px auto;
-    background-image: url('http://animation-park.com/wp-content/uploads/2025/05/dandelion.jpg');
-    background-size: cover;
-    background-position: center;
-    
-    /* マスクの初期状態（見えない） */
-    mask-image: linear-gradient(to right, black 50%, transparent 50%);
-    mask-size: 100% 100%;
-    mask-repeat: no-repeat;
-    mask-position: 130% 130%;
-    -webkit-mask-image: linear-gradient(to right, black 50%, transparent 50%);
-    -webkit-mask-size: 100% 100%;
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: 200% 200%;
-
-
-    transition: mask-position 1s ease, -webkit-mask-position 1s ease;
-  }
-
-  // .container.visible {
-  //   /* マスクの位置を変えて画像を見えるように */
-  //   mask-position: 0 0;
-  //   -webkit-mask-position: 0 0;
-  // }
-
-
-  button {
-    display: block;
-    margin: 10px auto;
-    padding: 10px 20px;
-  }

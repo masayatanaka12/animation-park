@@ -178,7 +178,7 @@
 }
 
 .galleryCard__cat{
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   padding: 0.1rem 3rem;
   color: #30493d;
@@ -535,11 +535,20 @@ code span{
   background: $c-white;
   border: 2px solid $c-black;
   margin-bottom: 1rem;
+  position: relative;
   
   @include mq(md){
     width: 36rem;
     margin-bottom: 0;
   }
+}
+
+.galleryModal__img{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
 
 .galleryModal__video{
@@ -549,6 +558,7 @@ code span{
   object-fit: cover;
 
 }
+
 
 
 .topGalleryModal__sample a{

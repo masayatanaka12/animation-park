@@ -28,7 +28,7 @@
         </div>
       </div>
     </div>
-    <div class="sample01__content">
+    <div class="sample01">
       <div class="sample01__imgWrap">
         <div class="sample01__img">
           <img src="http://animation-park.com/wp-content/uploads/2025/05/dandelion.jpg" alt="">
