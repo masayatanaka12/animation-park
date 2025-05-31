@@ -199,29 +199,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  // ① Observer のオプションを定義
   const options = {
-    root: null,            // ビューポート全体をルートに
+    root: null,
     rootMargin: '0px',
-    threshold: 0.1         // 要素が10%見えたらコールバック発火
+    threshold: 0.1
   };
 
-  // ② IntersectionObserver のコールバック
   const callback = (entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // ビューに入った要素に js-mask クラスを追加してアニメーション開始
         entry.target.classList.add('js-mask');
-        // 一度アニメーションしたら監視解除(再度スクロール時に再アニメ可としたい場合は解除しない)
         observer.unobserve(entry.target);
       }
     });
   };
 
-  // ③ Observer を生成
   const observer = new IntersectionObserver(callback, options);
 
-  // ④ すべての .sample01__img を監視対象に登録
   document.querySelectorAll('.sample01__img').forEach(elm => {
     observer.observe(elm);
   });

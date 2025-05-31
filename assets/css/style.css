@@ -337,35 +337,48 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
 }
 
-.galleryCard__btn {
+.galleryCard__btn--code {
   position: relative;
 }
 
-.galleryCard__btn::after {
+.galleryCard__btn--code::after {
   content: "";
   position: absolute;
   background: url();
   height: 2rem;
   width: 0.8rem;
-  bottom: 0;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  right: 0.8rem;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   background: url(../../assets/img/common/icon-arrow.svg) center center/contain no-repeat;
 }
 
 .galleryCard__btn button,
 .galleryCard__btn a {
-  padding: 1rem 2rem 2.4rem 2rem;
+  padding: 1rem 2.2rem 1rem 0;
   font-weight: 600;
   letter-spacing: 0.2em;
   font-size: 1.4rem;
   position: relative;
   color: #ECEAE0;
   display: inline-block;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.galleryCard__btn a::after {
+  content: "";
+  position: absolute;
+  background: url();
+  height: 2.3rem;
+  width: 2.3rem;
+  right: 0;
+  top: 14%;
+  background: url(../../assets/img/common/icon-newwindow.svg) center center/contain no-repeat;
 }
 
 .topGalleryModal {
@@ -582,7 +595,7 @@ code span {
 
 .topGalleryModal__sample a {
   font-size: 1.4rem;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.1em;
   padding-bottom: 1rem;
   border-bottom: 1px solid #30493d;
@@ -641,6 +654,56 @@ code span {
           transform: translateY(-50%);
 }
 
+.sample__wrap {
+  position: relative;
+}
+
+.sample__box {
+  width: 1px;
+  height: 5rem;
+  position: absolute;
+  bottom: -90px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.sample__line {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgb(0, 0, 0)), color-stop(50%, rgba(255, 255, 255, 0)));
+  background: linear-gradient(to bottom, rgb(0, 0, 0) 50%, rgba(255, 255, 255, 0) 50%);
+  background-position: 0 -50px;
+  background-size: 100% 200%;
+  -webkit-animation: scroll 2.2s cubic-bezier(0.76, 0, 0.3, 1) forwards infinite;
+          animation: scroll 2.2s cubic-bezier(0.76, 0, 0.3, 1) forwards infinite;
+}
+
+@-webkit-keyframes scroll {
+  0% {
+    background-position: 0 -50px;
+  }
+  75% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 50px;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    background-position: 0 -50px;
+  }
+  75% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 50px;
+  }
+}
 .topAbout__wrapper {
   height: 100vh;
   display: -ms-grid;
@@ -783,20 +846,6 @@ code span {
 }
 
 /* CSS */ /* CSS */
-.topGallerySample {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 10;
-  width: 100vw;
-  height: 100vh;
-  overflow-y: scroll; /* モーダル内スクロール */
-}
-
-.sample {
-  height: 200vh; /* 中身の高さを確保 */
-}
-
 .sample__fv {
   height: 100vh;
   display: -webkit-box;
@@ -811,11 +860,11 @@ code span {
 }
 
 .sample__fv p {
-  letter-spacing: 0.1em;
   color: #30493d;
   text-align: center;
-  font-size: 3rem;
+  font-size: 1.8rem;
   letter-spacing: 0.3em;
+  font-family: "Poppins", sans-serif;
 }
 
 /* 初期状態：少し下から、透明度0 */
@@ -841,40 +890,38 @@ code span {
 }
 
 .sample01__content {
-  padding-bottom: 100px;
+  padding: 0 2rem 200px;
 }
 
 .sample01__imgWrap {
   display: -ms-grid;
   display: grid;
-  gap: 100px;
+  gap: 200px;
 }
 
 .sample01__img {
   max-width: 600px;
   margin: auto;
-  /* 下準備としてマスク設定だけしておく（アニメーション自体はしない） */
-  mask-image: linear-gradient(135deg, rgb(0, 0, 0) 30%, rgba(0, 0, 0, 0.4) 45%, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0) 100%);
-  -webkit-mask-image: linear-gradient(135deg, rgb(0, 0, 0) 30%, rgba(0, 0, 0, 0.4) 45%, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0) 100%);
-  mask-size: 250% 250%;
-  -webkit-mask-size: 250% 250%;
+  mask-image: linear-gradient(135deg, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: linear-gradient(135deg, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%);
+  mask-size: 200% 200%;
+  -webkit-mask-size: 200% 200%;
   mask-repeat: no-repeat;
   -webkit-mask-repeat: no-repeat;
-  /* 初期位置を「マスクがかかった」状態に */
-  mask-position: 130% 130%;
-  -webkit-mask-position: 130% 130%;
+  mask-position: 140% 140%;
+  -webkit-mask-position: 140% 140%;
 }
 
 /* ビューに入った時に .js-mask クラスを付与してアニメーションを開始 */
 .sample01__img.js-mask {
-  -webkit-animation: mask-animation 1.5s linear forwards;
-          animation: mask-animation 1.5s linear forwards;
+  -webkit-animation: mask-animation 1.3s linear forwards;
+          animation: mask-animation 1.3s linear forwards;
 }
 
 @-webkit-keyframes mask-animation {
   0% {
-    mask-position: 130% 130%;
-    -webkit-mask-position: 130% 130%;
+    mask-position: 140% 140%;
+    -webkit-mask-position: 140% 140%;
   }
   100% {
     mask-position: 0 0;
@@ -884,14 +931,91 @@ code span {
 
 @keyframes mask-animation {
   0% {
-    mask-position: 130% 130%;
-    -webkit-mask-position: 130% 130%;
+    mask-position: 140% 140%;
+    -webkit-mask-position: 140% 140%;
   }
   100% {
     mask-position: 0 0;
     -webkit-mask-position: 0 0;
   }
 }
+.headerSample {
+  padding: 2rem 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+
+.headerSample__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.headerSample__logo {
+  font-size: 2.4rem;
+  font-weight: 200;
+  font-family: "Poppins", sans-serif;
+  line-height: 1;
+}
+
+.headerSample__num {
+  background: #30493d;
+  color: #ECEAE0;
+  display: inline-block;
+  border-radius: 30px;
+  font-size: 1rem;
+  line-height: 1;
+  font-weight: 500;
+  padding: 0.3rem 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.headerSample__ttlWrap {
+  text-align: right;
+}
+
+.headerSample__ttl {
+  font-size: 1.4rem;
+  letter-spacing: 0.16em;
+}
+
+.container {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  background-image: url("http://animation-park.com/wp-content/uploads/2025/05/dandelion.jpg");
+  background-size: cover;
+  background-position: center;
+  /* マスクの初期状態（見えない） */
+  mask-image: -webkit-gradient(linear, left top, right top, color-stop(50%, black), color-stop(50%, transparent));
+  mask-image: linear-gradient(to right, black 50%, transparent 50%);
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: 130% 130%;
+          mask-position: 130% 130%;
+  -webkit-mask-image: -webkit-gradient(linear, left top, right top, color-stop(50%, black), color-stop(50%, transparent));
+  -webkit-mask-image: linear-gradient(to right, black 50%, transparent 50%);
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: 200% 200%;
+  transition: mask-position 1s ease, -webkit-mask-position 1s ease;
+}
+
+button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+}
+
 .topKv {
   height: 100vh;
   position: relative;
@@ -1134,6 +1258,12 @@ code span {
   .topGalleryModal__header .tag::before {
     font-size: 1.4rem;
   }
+  .sample__box {
+    bottom: -70px;
+  }
+  .sample__line {
+    background-position: 0 -50px;
+  }
   .topAbout__wrapper {
     height: auto;
     justify-items: end;
@@ -1161,6 +1291,23 @@ code span {
     letter-spacing: 0.28em;
     font-size: 1.6rem;
     line-height: 2.8;
+  }
+  .headerSample {
+    padding: 2rem 4rem;
+  }
+  .headerSample__wrapper {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .headerSample__logo {
+    font-size: 3rem;
+  }
+  .headerSample__num {
+    margin-bottom: 1.2rem;
+  }
+  .headerSample__ttl {
+    font-size: 2rem;
   }
   .topKv__ttlWrap {
     left: 2.0833333333vw;

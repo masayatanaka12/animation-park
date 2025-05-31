@@ -231,39 +231,52 @@
   justify-content: center;
   position: relative;
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
 }
 
-.galleryCard__btn{
+.galleryCard__btn--code{
   position: relative;
 }
 
-.galleryCard__btn::after{
+.galleryCard__btn--code::after{
   content: '';
   position: absolute;
   background: url();
   height: 2rem;
   width: 0.8rem;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
   background: url(../../assets/img/common/icon-arrow.svg) center center / contain no-repeat;
-
 }
 
 .galleryCard__btn button,
 .galleryCard__btn a{
-  padding: 1rem 2rem 2.4rem 2rem;
+  padding: 1rem 2.2rem 1rem 0;
   font-weight: 600;
   letter-spacing: 0.2em;
   font-size: 1.4rem;
   position: relative;
   color: #ECEAE0;
   display: inline-block;
+  line-height: 1;
+  cursor: pointer;
 
   @include mq(md){
     font-size: 1.6rem;
   }
+}
+
+
+.galleryCard__btn a::after{
+  content: '';
+  position: absolute;
+  background: url();
+  height: 2.3rem;
+  width: 2.3rem;
+  right: 0;
+  top: 14%;
+  background: url(../../assets/img/common/icon-newwindow.svg) center center / contain no-repeat;
 }
 
 
@@ -540,7 +553,7 @@ code span{
 
 .topGalleryModal__sample a{
   font-size: 1.4rem;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.1em;
   padding-bottom: 1rem;
   border-bottom: 1px solid $c-black;
@@ -616,5 +629,52 @@ code span{
 
   @include mq(md){
     font-size: 1.4rem;
+  }
+}
+
+
+.sample__wrap{
+  position: relative;
+}
+
+
+.sample__box {
+  width: 1px;
+  height: 5rem;
+  position: absolute;
+  bottom: -90px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  overflow: hidden;
+
+  @include mq(md){
+    bottom: -70px;
+  }
+}
+
+.sample__line {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: linear-gradient(to bottom, rgb(0, 0, 0) 50%, rgba(255, 255, 255, 0) 50%);
+  background-position: 0 -50px;
+  background-size: 100% 200%;
+  animation: scroll 2.2s cubic-bezier(0.76, 0, 0.3, 1) forwards infinite;
+
+  @include mq(md){
+    background-position: 0 -50px;
+  }
+}
+
+@keyframes scroll {
+  0%{
+    background-position: 0 -50px;
+  }
+  75% {
+    background-position: 0 0;
+  }
+  100%{
+    background-position: 0 50px;
   }
 }
