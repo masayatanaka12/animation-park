@@ -1,15 +1,17 @@
 
 
 .topAbout__wrapper{
-  padding: 10rem 1rem 14rem;
   height: 100vh;
+  display: grid;
+  align-content: center;
+  padding: 5rem 2rem;
 
   @include mq(md){
     height: auto;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    padding: 18rem 0 23rem;
-    max-width: 120rem;
+    justify-items: end;
+    grid-template-columns: repeat(24, 1fr);
+    padding: 16rem 2rem 16rem;
+    max-width: 140rem;
     margin: 0 auto;
   }
 }
@@ -22,8 +24,9 @@
   @include mq(md){
     font-weight: 500;
     margin-bottom: 0;
-    font-size: 2rem;
+    font-size: 1.8rem;
     grid-column: 1 / 4;
+    padding-top: 1rem;
 
   }
 }
@@ -31,19 +34,19 @@
 .topAbout__txtWrap{
 
   @include mq(md){
-  grid-column: 6 / 13;
-    
+  grid-column: 8 / 25;
   }
 }
 
 .topAbout__txt{
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   line-height: 2.6;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.13em;
   
   @include mq(md){
     letter-spacing: 0.28em;
     font-size: 1.6rem;
+    line-height: 2.8;
   }
 }

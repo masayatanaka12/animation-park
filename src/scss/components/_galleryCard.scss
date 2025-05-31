@@ -1,8 +1,9 @@
-.topGallery{
-  background: #30493d;
-}
 
 .topGallery__card{
+
+  @include mq(tb){
+    width: 50%;
+  }
 
   @include mq(md){
     width: 33.3%;
@@ -12,15 +13,26 @@
 .galleryCard{
   position: relative;
   border-top: #30493d solid 2px;
+  background: $c-black;
 }
 
 .galleryCard:not(:first-of-type){
-  border-top: 2px solid $c-white;
 
+  border-top: 2px solid $c-white;
+  @include mq(tb){
+  }
   @include mq(md){
     border-top: 0;
+
+    border-left: 2px solid $c-white;    
+  }
+}
+
+.galleryCard:nth-child(2n) {
+
+  @include mq(tb) {
+    border-top: 0;
     border-left: 2px solid $c-white;
-    
   }
 }
 
@@ -28,21 +40,72 @@
   display: block;
   padding: 8rem 4% 6rem;
   position: relative;
+
+  @include mq(md){
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+}
+
+.galleryCard__videoContent{
+  position: relative;
 }
 
 .galleryCard__videoWrap{
   display: block;
-  border-radius: 10px;
-  overflow: hidden;
+  border-radius: 4px;
   margin-bottom: 0.6rem;
   aspect-ratio: 1.5;
   background: $c-white;
+  position: relative;
+  overflow: hidden;
 
   @include mq(md){
     margin-bottom: 1rem;
   }
 }
 
+.galleryCard__play{
+  position: absolute;
+  font-size: 1.2rem;
+  padding: 0.6rem 1.8rem;
+  background: $c-white;
+  color: $c-black;
+  font-weight: 600;
+  border-radius: 3px;
+  bottom: -3.4rem;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  right: 0;
+  font-family: $poppins;
+
+  @include mq(md){
+    display: none;
+  }
+}
+
+.galleryModal__play{
+  position: absolute;
+  font-size: 1.2rem;
+  padding: 0.6rem 1.8rem;
+  background: $c-black;
+  color: $c-white;
+  font-weight: 600;
+  border-radius: 3px;
+  bottom: -3.4rem;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  right: 0;
+  font-family: $poppins;
+
+  @include mq(md){
+    display: none;
+  }
+}
+
+.galleryModal__videoContent{
+  position: relative;
+}
 .galleryCard__videoTxt{
   height: 100%;
   display: flex;
@@ -72,6 +135,11 @@
   display: flex;
   gap: 0.4rem 1.4rem;
   flex-wrap: wrap;
+  padding-right: 8rem;
+
+  @include mq(md){
+    padding-right: 0;
+  }
 }
 
 .galleryCard__tag{
@@ -80,6 +148,10 @@
   color: $c-white;
   position: relative;
   font-weight: 500;
+
+  @include mq(md){
+    font-size: 1.3rem;
+  }
 }
 
 .galleryCard__tag::before{
@@ -110,10 +182,18 @@
   font-weight: 700;
   padding: 0.1rem 3rem;
   color: #30493d;
+  border-left: 2px solid #30493d;
+
+  @include mq(md){
+    border-left: 0;
+  }
 }
 
 .galleryCard__cat:not(:first-of-type){
-  border-left: 2px solid #30493d;
+  
+  @include mq(md){
+    border-left: 2px solid #30493d;
+  }
 }
 
 .galleryCard__box{
@@ -140,6 +220,10 @@
   text-align: center;
   font-weight: 500;
   color: #ECEAE0;
+
+  @include mq(md){
+    font-size: 1.8rem;
+  }
 }
 
 .galleryCard__btnWrap{
@@ -167,15 +251,19 @@
 
 }
 
-.galleryCard__btn button{
+.galleryCard__btn button,
+.galleryCard__btn a{
   padding: 1rem 2rem 2.4rem 2rem;
   font-weight: 600;
   letter-spacing: 0.2em;
-  font-size: 1.3rem;
-  font-family: $poppins;
+  font-size: 1.4rem;
   position: relative;
   color: #ECEAE0;
-  cursor: pointer;
+  display: inline-block;
+
+  @include mq(md){
+    font-size: 1.6rem;
+  }
 }
 
 
@@ -220,7 +308,7 @@
 
 .topGalleryModal__wrapper{
   overflow-x: scroll;
-  padding: 6rem 4%;
+  padding: 10rem 4% 6rem;
   border-radius: 3px;
   height: 100%;
   clip-path: polygon(calc(100% - 60px) 0, calc(100% - 60px) 60px, 100% 60px, 100% 70%, 100% 100%, 50% 100%, 20% 100%, 0 100%, 0% 35%, 0 0);
@@ -254,7 +342,7 @@
 .topGalleryModal__code{
   background: #30493d;
   position: relative;
-  padding: 6rem 4% 2rem;
+  padding: 4rem 4% 0;
   overflow-x: scroll;
   
 
@@ -286,7 +374,7 @@
   padding: 0.4rem 2rem;
   letter-spacing: 0.2em;
   font-weight: 600;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   top: 2rem;
   right: 2rem;
   font-family: $poppins;
@@ -295,6 +383,15 @@
   border-radius: 3px;
   background: $c-white;
   z-index: 1;
+
+  @include mq(md){
+    font-size: 1.4rem;
+  }
+}
+
+
+.topGalleryModal__sample{
+
 }
 
 .topGalleryModal__list{
@@ -307,7 +404,7 @@
   font-weight: 500;
   letter-spacing: 0.1em;
   line-height: 1;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   border-right: 2px solid $c-white;
   border-top: 2px solid $c-white;
   font-family: $poppins;
@@ -315,6 +412,10 @@
   color: $c-white;
   cursor: pointer;
   opacity: 0.7;
+
+  @include mq(md){
+    font-size: 1.4rem;
+  }
 }
 
 .topGalleryModal__item.active{
@@ -330,6 +431,11 @@ pre code {
 .language-css,
 .language-javascript{
   background: #30493d!important;
+  font-size: 1.2rem!important;
+
+  @include mq(md){
+    font-size: 1.4rem!important;
+  }
 }
 
 code[class*="language-"], pre[class*="language-"]{
@@ -380,8 +486,11 @@ code[class*="language-"], pre[class*="language-"]{
 
 code span{
   background: transparent!important;
-  font-size: 1.4rem!important;
+  font-size: 1.2rem!important;
 
+  @include mq(md){
+    font-size: 1.4rem!important;
+  }
 }
 
 .token.operator{
@@ -391,4 +500,121 @@ code span{
 .token.keyword,
 .token.number{
   color: #b2da6e !important;
+}
+
+
+.topGalleryModal__box{
+
+  @include mq(md){
+    display: flex;
+    gap: 3rem;
+    align-items: flex-end;
+    flex-direction: row-reverse;
+  }
+}
+
+
+.galleryModal__videoWrap{
+  display: block;
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 1.5;
+  background: $c-white;
+  border: 2px solid $c-black;
+  margin-bottom: 1rem;
+  
+  @include mq(md){
+    width: 36rem;
+    margin-bottom: 0;
+  }
+}
+
+.galleryModal__video{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+
+}
+
+
+.topGalleryModal__sample a{
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid $c-black;
+  display: inline-block;
+}
+
+.topGalleryModal__info{
+  margin-bottom: 4rem;
+
+  @include mq(md){
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+}
+
+.topGalleryModal__header{
+  margin-bottom: 2rem;
+
+  @include mq(md){
+    margin-bottom: 0;
+  }
+}
+
+.topGalleryModal__header .num{
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  background: $c-black;
+  border-radius: 30px;
+  font-weight: 700;
+  padding: 0.2rem 1.6rem 0.3rem;
+  color: $c-white;
+  line-height: 1;
+  display: inline-block;
+  margin-bottom: 0.3rem;
+}
+
+.topGalleryModal__header .ttl{
+  font-size: 2.3rem;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.6rem;
+  @include mq(md){
+    font-size: 4rem;
+    margin-bottom: 1.2rem;
+  }
+}
+
+.topGalleryModal__header .tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+}
+
+.topGalleryModal__header .tag{
+  font-size: 1.2rem;
+  position: relative;
+  padding-left: 1rem;
+
+  @include mq(md){
+    font-size: 1.4rem;
+  }
+}
+
+.topGalleryModal__header .tag::before{
+  position: absolute;
+  content: "#";
+  font-size: 1.2rem;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  @include mq(md){
+    font-size: 1.4rem;
+  }
 }

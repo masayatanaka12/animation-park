@@ -3,18 +3,28 @@
   position: relative;
 }
 
+.topKv__ttlWrap{
+  top: calcvw(20);
+  left: calcvw(14);
+  position: absolute;
+
+  @include mq(md){
+    left: calcvwPc(30);
+    top: calcvwPc(30);
+  }
+}
+
 .topKv__ttl{
   font-size: calcvw(60);
   color: #30493d;
-  position: absolute;
   letter-spacing: 0.03em;
   font-family: $poppins;
   font-weight: 200;
   line-height: 1;
-  top: calcvw(20);
-  left: calcvw(14);
+  margin-bottom: calcvw(20);
 
   @include mq(md){
+    margin-bottom: calcvwPc(70);
     font-weight: 100;
     font-size: calcvwPc(240);
     left: calcvwPc(30);
@@ -30,18 +40,28 @@
   
   @include mq(md){
       right: calcvwPc(40);
-  bottom: calcvwPc(60);
+      bottom: calcvwPc(60);
   }
 }
 
 .topKv__txt{
-  line-height: 2;
-  font-weight: 300;
-  letter-spacing: 0.6em;
-  font-size: calcvw(14);
+  font-size: calcvw(13);
+  letter-spacing: 0.3em;
 
   @include mq(md){
-    font-size: calcvwPc(26);
+    font-size: calcvwPc(18);
+    padding-left: calcvwPc(12);
+  }
+}
 
+.topKv__message{
+  line-height: 2;
+  font-weight: 300;
+  letter-spacing: 0.4em;
+  font-size: calcvw(18);
+
+  @include mq(md){
+    letter-spacing: 0.5em;
+    font-size: calcvwPc(26);
   }
 }

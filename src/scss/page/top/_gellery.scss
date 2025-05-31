@@ -53,7 +53,7 @@
 
 .topGallery__cards{
   
-  @include mq(md){
+  @include mq(tb){
     display: flex;
     flex-wrap: wrap;
   }
@@ -84,22 +84,24 @@
   height: 6rem;
 }
 
-.topGallerySample{
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 10;
-  width: 100vw;
-  height: 100vh;
-  background: #fff;
-  overflow-y: scroll;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.3s opacity;
-}
+// .topGallerySample{
+//   position: fixed;
+//   left: 0;
+//   top: 0;
+//   z-index: 10;
+//   width: 100vw;
+//   height: 100vh;
+//   background: #fff;
+//   overflow-y: scroll;
+//   opacity: 0;
+//   pointer-events: none;
+//   transition: 0.3s opacity;
+//   background: $c-white;
+// }
 
 .topGallerySample__close{
   position: fixed;
+  display: inline-block;
   right: 0;
   top: 0;
   background: $c-black;
@@ -130,12 +132,26 @@
   left: 0; top: 0;
   z-index: 10;
   width: 100vw; height: 100vh;
-  background: #fff;
   overflow-y: scroll;       /* モーダル内スクロール */
 }
 
-.topGallerySample__wrapper {
+.sample {
   height: 200vh;             /* 中身の高さを確保 */
+}
+
+.sample__fv{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sample__fv p{
+  letter-spacing: 0.1em;
+  color: $c-black;
+  text-align: center;
+  font-size: 3rem;
+  letter-spacing: 0.3em;
 }
 
 /* 初期状態：少し下から、透明度0 */
@@ -155,4 +171,53 @@
 
 .test{
   height: 100vh;
+}
+
+.sample01__content{
+  padding-bottom: 100px;
+}
+
+
+.sample01__imgWrap{
+  display: grid;
+  gap: 100px;
+}
+.sample01__img {
+  max-width: 600px;
+  margin: auto;
+
+  /* 下準備としてマスク設定だけしておく（アニメーション自体はしない） */
+  mask-image: linear-gradient(135deg,
+    rgba(0, 0, 0, 1)   30%,
+    rgba(0, 0, 0, 0.4) 45%,
+    rgba(0, 0, 0, 0)   55%,
+    rgba(0, 0, 0, 0)   100%);
+  -webkit-mask-image: linear-gradient(135deg,
+    rgba(0, 0, 0, 1)   30%,
+    rgba(0, 0, 0, 0.4) 45%,
+    rgba(0, 0, 0, 0)   55%,
+    rgba(0, 0, 0, 0)   100%);
+  mask-size: 250% 250%;
+  -webkit-mask-size: 250% 250%;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  /* 初期位置を「マスクがかかった」状態に */
+  mask-position: 130% 130%;
+  -webkit-mask-position: 130% 130%;
+}
+
+/* ビューに入った時に .js-mask クラスを付与してアニメーションを開始 */
+.sample01__img.js-mask {
+  animation: mask-animation 1.5s linear forwards;
+}
+
+@keyframes mask-animation {
+  0% {
+    mask-position: 130% 130%;
+    -webkit-mask-position: 130% 130%;
+  }
+  100% {
+    mask-position: 0 0;
+    -webkit-mask-position: 0 0;
+  }
 }

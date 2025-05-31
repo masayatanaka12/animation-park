@@ -22,7 +22,7 @@ body {
   font-family: $zen-kaku;
   color: $c-black;
   background: #ECEAE0;
-  font-family: $noto-sans;
+  // font-family: $noto-sans;
   color: #30493d;
 }
 
@@ -47,3 +47,6 @@ a{
   color: $c-black;
 }
 
+button{
+  font-family: $zen-kaku;
+}

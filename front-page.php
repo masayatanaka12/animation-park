@@ -1,9 +1,14 @@
 <?php get_header(); ?>
 
 <section class="topKv">
-  <h1 class="topKv__ttl">Animation<br>park</h1>
-  <div class="topKv__txtWrap">
+  <div class="topKv__ttlWrap">
+    <h1 class="topKv__ttl">Animation<br>park</h1>
     <p class="topKv__txt">
+      アニメーションギャラリーサイト
+    </p>
+  </div>
+  <div class="topKv__txtWrap">
+    <p class="topKv__message">
       ホームページを、<br>
       ちょっとおしゃれに。
     </p>
@@ -17,8 +22,12 @@
     </h2>
     <div class="topAbout__txtWrap">
       <p class="topAbout__txt">
-        自分のホームページをもうちょっとおしゃれにしたいホームページオーナー様、動きのアイデアが欲しいデザイナー様、実装方法のアイデアが欲しいコーダー様向けに制作いたしました。
-        主にCSS, GSAP, three.js, WebGLに関する動きを取り上げています。
+        個人的に"いいな"と感じたアニメーションを厳選して紹介しています。<br>
+        自分のホームページをもう少しおしゃれに魅せたいオーナー様、<br>
+        動きのアイデアを探しているデザイナー様やディレクター様、<br>
+        実装のヒントが欲しいコーダー様、<br>
+        少しでも皆さまの制作の参考やヒントになれば幸いです。<br>
+        主にCSS、GSAP、three.js、WebGLを使ったアニメーションを取り上げています。
       </p>
     </div>
   </div>
@@ -33,16 +42,19 @@
             <span class="num">001</span>
             <p class="ttl">アニメーション</p>
           </div>
-          <div class="galleryCard__videoWrap">
-            <video
-              class="galleryCard__video"
-              src="<?php echo get_stylesheet_directory_uri(); ?>/assets/video/test.mp4"
-              muted
-              loop
-              preload="metadata">
-              <!-- フォールバック用 -->
-              このブラウザではビデオが再生できません。
-            </video>
+          <div class="galleryCard__videoContent">
+            <button class="galleryCard__play">play</button>
+            <div class="galleryCard__videoWrap">
+              <video
+                class="galleryCard__video js-video"
+                src="<?php echo get_stylesheet_directory_uri(); ?>/assets/video/test.mp4"
+                muted
+                loop
+                preload="metadata">
+                <!-- フォールバック用 -->
+                このブラウザではビデオが再生できません。
+              </video>
+            </div>
           </div>
           <ul class="galleryCard__tagList">
             <li class="galleryCard__tag">
@@ -70,9 +82,9 @@
               </button>
             </div>
             <div class="galleryCard__btn galleryCard__btn--sample">
-              <button>
+              <a href="<?php echo esc_url(home_url()); ?>/sample01/" target="_blank" rel="noopener">
                 実際の動きを見る
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -93,7 +105,7 @@
       <li class="topGallery__card galleryCard">
         <div class="galleryCard__link">
           <div class="galleryCard__box">
-            <span class="num">002</span>
+            <span class="num">003</span>
             <p class="ttl">Coming soon...</p>
           </div>
           <div class="galleryCard__videoWrap">
@@ -106,26 +118,44 @@
     </ul>
   </div>
   <div class="topGalleryModal__bg"></div>
-  <div class="topGallerySample">
-    <button class="topGallerySample__close">
-      閉じる
-    </button>
-    <div class="topGallerySample__wrapper">
-      <div class="test">
-        <div class="fadeup">コンテンツ 1</div>
-      </div>
-      <div class="test">
-        <div class="fadeup">コンテンツ 1</div>
-      </div>
-      <div class="test">
-        <div class="fadeup">コンテンツ 1</div>
-      </div>
-      <!-- 必要に応じて増やす -->
-    </div>
-  </div>
+
   <div class="topGallery__modal topGalleryModal">
     <div class="topGalleryModal__close"></div>
     <div class="topGalleryModal__wrapper">
+      <div class="topGalleryModal__info">
+        <div class="topGalleryModal__header">
+          <span class="num">001</span>
+          <p class="ttl">アニメーション</p>
+          <ul class="tags">
+            <li class="tag">スタイリッシュ</li>
+            <li class="tag">おしゃれ</li>
+            <li class="tag">かっこいい</li>
+          </ul>
+        </div>
+        <div class="topGalleryModal__box">
+          <div class="galleryModal__videoContent">
+            <button class="galleryModal__play">
+              play
+            </button>
+            <div class="galleryModal__videoWrap">
+              <video
+                class="galleryModal__video js-video"
+                src="<?php echo get_stylesheet_directory_uri(); ?>/assets/video/test.mp4"
+                muted
+                loop
+                preload="metadata">
+                <!-- フォールバック用 -->
+                このブラウザではビデオが再生できません。
+              </video>
+            </div>
+          </div>
+          <div class="topGalleryModal__sample galleryCard__btn--sample">
+            <a href="<?php echo esc_url(home_url()); ?>/sample01/">
+              実際の動きを見る
+            </a>
+          </div>
+        </div>
+      </div>
       <ul class="topGalleryModal__list">
         <li class="topGalleryModal__item active" data-tab="0">
           HTML

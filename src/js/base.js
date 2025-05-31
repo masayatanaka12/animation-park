@@ -37,15 +37,28 @@ jQuery(function ($) {
 // jQuery End
 
 
-document.querySelectorAll('.galleryCard__video').forEach(video => {
-  // ホバー開始で再生＆フィルタ解除
-  video.addEventListener('mouseenter', () => {
-    video.play();
+document.addEventListener('DOMContentLoaded', () => {
+  // ▼ ホバーで再生／停止（PC向け）
+  document.querySelectorAll('.js-video').forEach(video => {
+    video.addEventListener('mouseenter', () => {
+      video.play();
+    });
+    video.addEventListener('mouseleave', () => {
+      video.pause();
+      video.currentTime = 0;
+    });
   });
-  // ホバー終了で一時停止＆フィルタ戻す
-  video.addEventListener('mouseleave', () => {
-    video.pause();
-    video.currentTime = 0; // 先頭に戻す場合
+
+  // ▼ Playボタンを押したら先頭から再生（SP向けも含む）
+  document.querySelectorAll('.galleryCard__play').forEach(button => {
+    const video = button.parentElement.querySelector('.js-video');
+    if (!video) return;
+
+    button.addEventListener('click', () => {
+      // クリックのたびに先頭に戻して再生
+      video.currentTime = 0;
+      video.play();
+    });
   });
 });
 
@@ -104,18 +117,27 @@ document.querySelectorAll('.galleryCard__btn--code').forEach(function(btn) {
 });
 
 // モーダルを閉じる
+// topGalleryModal を閉じる際にスクロール位置をリセットする
+// topGalleryModal を閉じる際に 0.5 秒後に wrapper.scrollTop = 0 を実行する
 document.querySelectorAll('.topGalleryModal__close, .topGalleryModal__bg').forEach(function(elm) {
   elm.addEventListener('click', function() {
-    const modal = document.querySelector('.topGalleryModal');
-    const bg = document.querySelector('.topGalleryModal__bg');
-    modal.classList.remove('active');      // 開く用クラスを外す
-    modal.classList.add('closing');        // 閉じるアニメ用クラスを付ける
+    const modal   = document.querySelector('.topGalleryModal');
+    const wrapper = modal.querySelector('.topGalleryModal__wrapper');
+    const bg      = document.querySelector('.topGalleryModal__bg');
+
+    // モーダルを閉じるクラス操作
+    modal.classList.remove('active');   // 開く用クラスを外す
+    modal.classList.add('closing');     // 閉じるアニメ用クラスを付ける
     bg.classList.remove('active');
-    // アニメーション後に.closingを外す
+
+    // 0.5秒後にスクロール位置をリセットし、closing クラスを外す
     setTimeout(function() {
+      if (wrapper) {
+        wrapper.scrollTop = 0;
+      }
       modal.classList.remove('closing');
       // 必要ならここで display: none; をつけてもOK
-    }, 500); // 0.5s → 閉じるアニメの所要時間に合わせる
+    }, 500); // 0.5s → 閉じるアニメーションの所要時間に合わせる
   });
 });
 
@@ -173,3 +195,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  // ① Observer のオプションを定義
+  const options = {
+    root: null,            // ビューポート全体をルートに
+    rootMargin: '0px',
+    threshold: 0.1         // 要素が10%見えたらコールバック発火
+  };
+
+  // ② IntersectionObserver のコールバック
+  const callback = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // ビューに入った要素に js-mask クラスを追加してアニメーション開始
+        entry.target.classList.add('js-mask');
+        // 一度アニメーションしたら監視解除(再度スクロール時に再アニメ可としたい場合は解除しない)
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+
+  // ③ Observer を生成
+  const observer = new IntersectionObserver(callback, options);
+
+  // ④ すべての .sample01__img を監視対象に登録
+  document.querySelectorAll('.sample01__img').forEach(elm => {
+    observer.observe(elm);
+  });
+});
+
