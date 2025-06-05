@@ -927,9 +927,8 @@ code span {
 .sample01__imgWrap {
   display: -ms-grid;
   display: grid;
-  gap: 100px;
+  gap: 30vh;
 }
-
 .sample01__img {
   max-width: 600px;
   margin: auto;
@@ -975,6 +974,7 @@ code span {
   top: 0;
   left: 0;
   width: 100vw;
+  z-index: 10;
 }
 
 .headerSample__wrapper {
