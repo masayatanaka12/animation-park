@@ -158,6 +158,26 @@ button {
   font-weight: 500;
 }
 
+.header {
+  width: 100%;
+  padding: 1rem 1.6rem;
+  background: rgba(236, 234, 224, 0.4);
+}
+
+.header__ttl {
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: 0.6rem;
+}
+
+.header__txt {
+  font-size: 1.2rem;
+}
+
+.topGallery {
+  padding-top: 3rem;
+}
+
 .galleryCard {
   position: relative;
   border-top: #30493d solid 2px;
@@ -384,12 +404,12 @@ button {
 .topGalleryModal {
   position: fixed;
   width: 96%;
-  height: 96vh;
+  height: 80vh;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  z-index: 1;
+  z-index: 60;
 }
 
 .topGalleryModal__close {
@@ -806,7 +826,7 @@ code span {
 .topGalleryModal__bg {
   position: fixed;
   width: 100vw;
-  height: 100vh;
+  height: 120vh;
   background: rgba(0, 0, 0, 0.6);
   left: 0;
   top: 0;
@@ -815,6 +835,7 @@ code span {
   pointer-events: none;
   -webkit-transition: 0.6s opacity 0s;
   transition: 0.6s opacity 0s;
+  z-index: 40;
 }
 
 .topGalleryModal__bg.active {
@@ -997,11 +1018,6 @@ code span {
   letter-spacing: 0.16em;
 }
 
-.topKv {
-  height: 100vh;
-  position: relative;
-}
-
 .topKv__ttlWrap {
   top: 5.3333333333vw;
   left: 3.7333333333vw;
@@ -1009,13 +1025,13 @@ code span {
 }
 
 .topKv__ttl {
-  font-size: 16vw;
+  font-size: 4rem;
   color: #30493d;
   letter-spacing: 0.03em;
   font-family: "Poppins", sans-serif;
   font-weight: 200;
   line-height: 1;
-  margin-bottom: 5.3333333333vw;
+  margin-bottom: 1rem;
 }
 
 .topKv__txtWrap {
@@ -1133,6 +1149,12 @@ code span {
   }
   .vpc {
     display: block;
+  }
+  .header {
+    padding: 1.6rem 3rem;
+  }
+  .header__ttl {
+    font-size: 3.4rem;
   }
   .topGallery__card {
     width: 33.3%;
@@ -1272,6 +1294,9 @@ code span {
     letter-spacing: 0.28em;
     font-size: 1.6rem;
     line-height: 2.8;
+  }
+  .topGalleryModal__bg {
+    height: 100vh;
   }
   .headerSample {
     padding: 2rem 4rem;

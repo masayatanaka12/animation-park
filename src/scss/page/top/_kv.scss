@@ -1,6 +1,4 @@
 .topKv{
-  height: 100vh;
-  position: relative;
 }
 
 .topKv__ttlWrap{
@@ -15,13 +13,13 @@
 }
 
 .topKv__ttl{
-  font-size: calcvw(60);
+  font-size: 4rem;
   color: #30493d;
   letter-spacing: 0.03em;
   font-family: $poppins;
   font-weight: 200;
   line-height: 1;
-  margin-bottom: calcvw(20);
+  margin-bottom: 1rem;
 
   @include mq(md){
     margin-bottom: calcvwPc(70);

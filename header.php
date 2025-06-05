@@ -28,6 +28,3 @@
 <body>
   <?php wp_body_open(); ?>
 
-  <header class="header">
-
-  </header>

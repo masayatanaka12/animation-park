@@ -1,21 +1,15 @@
 <?php get_header(); ?>
 
-<section class="topKv">
+<!-- <section class="topKv">
   <div class="topKv__ttlWrap">
-    <h1 class="topKv__ttl">Animation<br>park</h1>
+    <h1 class="topKv__ttl">Animation park</h1>
     <p class="topKv__txt">
       アニメーションギャラリーサイト
     </p>
   </div>
-  <div class="topKv__txtWrap">
-    <p class="topKv__message">
-      ホームページを、<br>
-      ちょっとおしゃれに。
-    </p>
-  </div>
-</section>
+</section> -->
 
-<section class="topAbout">
+<!-- <section class="topAbout">
   <div class="topAbout__wrapper">
     <h2 class="topAbout__ttl">
       About
@@ -29,7 +23,16 @@
       </p>
     </div>
   </div>
-</section>
+</section> -->
+
+<header class="header">
+  <div class="header__ttlWrap">
+    <h1 class="header__ttl">Animation park</h1>
+    <p class="header__txt">
+      アニメーションギャラリーサイト
+    </p>
+  </div>
+</header>
 
 <section class="topGallery">
   <div class="topGallery__inner">
@@ -51,7 +54,7 @@
                 loop
                 playsinline
                 webkit-playsinline
-                preload="metadata">
+                preload="auto">
                 <!-- フォールバック用 -->
                 このブラウザではビデオが再生できません。
               </video>
@@ -147,7 +150,7 @@
                 loop
                 playsinline
                 webkit-playsinline
-                preload="metadata">
+                preload="auto">
                 <!-- フォールバック用 -->
                 このブラウザではビデオが再生できません。
               </video>
@@ -199,10 +202,6 @@
             <button class="copy-btn vpc">Copy</button>
             <pre>
               <code class="language-css">
-.sample01__imgWrap{
-  display: grid;
-  gap: 80px;
-}
 .sample01__imgWrap{
   display: grid;
   gap: 80px;

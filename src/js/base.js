@@ -37,36 +37,33 @@ jQuery(function ($) {
 // jQuery End
 
 
+// 1. 全てのラッパー要素を取得
 document.addEventListener('DOMContentLoaded', () => {
-  // ▼ ホバーで再生／停止（PC向け）
-  document.querySelectorAll('.js-video').forEach(video => {
-    video.addEventListener('mouseenter', () => {
+  const wrappers = document.querySelectorAll('.galleryCard__videoWrap');
+
+  wrappers.forEach(wrap => {
+    const video = wrap.querySelector('video');
+    const img   = wrap.querySelector('.galleryModal__img');
+
+    // video または img が見つからなければスキップ
+    if (!video || !img) return;
+
+    wrap.addEventListener('mouseenter', () => {
+      img.style.display = 'none';
       video.play();
     });
-    video.addEventListener('mouseleave', () => {
+
+    wrap.addEventListener('mouseleave', () => {
       video.pause();
       video.currentTime = 0;
+      img.style.display = ''; // 必要に応じて 'block' などを指定
     });
   });
+});
+
 
   // ▼ Playボタンを押したら先頭から再生（SP向けも含む）
-document.querySelectorAll('.galleryCard__play').forEach(button => {
-  const container = button.parentElement; // .galleryModal__videoContent
-  const video     = container.querySelector('.js-video');
-  const img       = container.querySelector('.galleryModal__img');
-  if (!video) return;
 
-  button.addEventListener('click', () => {
-    // 画像を非表示にする
-    if (img) {
-      img.style.display = 'none';
-    }
-
-    // 動画を先頭に戻して再生
-    video.currentTime = 0;
-    video.play();
-  });
-});
 document.querySelectorAll('.galleryModal__play').forEach(button => {
   const container = button.parentElement; // .galleryModal__videoContent
   const video     = container.querySelector('.js-video');
@@ -85,6 +82,22 @@ document.querySelectorAll('.galleryModal__play').forEach(button => {
   });
 });
 
+document.querySelectorAll('.galleryCard__play').forEach(button => {
+  const container = button.parentElement; // .galleryModal__videoContent
+  const video     = container.querySelector('.js-video');
+  const img       = container.querySelector('.galleryModal__img');
+  if (!video) return;
+
+  button.addEventListener('click', () => {
+    // 画像を非表示にする
+    if (img) {
+      img.style.display = 'none';
+    }
+
+    // 動画を先頭に戻して再生
+    video.currentTime = 0;
+    video.play();
+  });
 });
 
 document.querySelectorAll('.copy-btn').forEach(btn => {
