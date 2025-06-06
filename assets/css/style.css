@@ -1198,6 +1198,9 @@ code span {
   .galleryCard__btn a {
     font-size: 1.6rem;
   }
+  .topGalleryModal {
+    height: 96vh;
+  }
   .topGalleryModal__wrapper {
     padding: 6rem 8rem;
   }

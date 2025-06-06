@@ -175,9 +175,9 @@
         </li>
       </ul>
       <div class="topGalleryModal__codeWrap">
-        <button class="copy-btn vpc">Copy</button>
         <div class="topGalleryModal__code" data-tab="0">
           <div class="topGalleryModal__detail">
+            <button class="copy-btn vpc">Copy</button>
             <pre>
               <code class="language-html">
 &lt;div class="sample01"&gt;

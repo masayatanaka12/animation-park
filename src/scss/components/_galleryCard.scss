@@ -293,6 +293,10 @@
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 60;
+
+  @include mq(md){
+    height: 96vh;
+  }
 }
 
 .topGalleryModal__close{
