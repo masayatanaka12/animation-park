@@ -61,6 +61,30 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const wrappers = document.querySelectorAll('.galleryModal__videoWrap');
+
+  wrappers.forEach(wrap => {
+    const video = wrap.querySelector('video');
+    const img   = wrap.querySelector('.galleryModal__img');
+
+    // video または img が見つからなければスキップ
+    if (!video || !img) return;
+
+    wrap.addEventListener('mouseenter', () => {
+      img.style.display = 'none';
+      video.play();
+    });
+
+    wrap.addEventListener('mouseleave', () => {
+      video.pause();
+      video.currentTime = 0;
+      img.style.display = ''; // 必要に応じて 'block' などを指定
+    });
+  });
+});
+
+
 
   // ▼ Playボタンを押したら先頭から再生（SP向けも含む）
 
