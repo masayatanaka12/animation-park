@@ -10,10 +10,28 @@ function my_theme_scripts()
     [],
     '1.0.0'
   );
+
+  // GSAP core from CDN
+  wp_enqueue_script(
+    'gsap',                                        // Handle
+    'https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js',
+    [],                                            // No dependencies
+    '3.13.0',                                      // Version
+    true                                           // Load in footer
+  );
+
+  wp_enqueue_script(
+    'observer',                                        // Handle
+    'https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Observer.min.js',
+    [],                                            // No dependencies
+    '3.13.0',                                      // Version
+    true                                           // Load in footer
+  );
+
   wp_enqueue_script(
     'main',
     get_stylesheet_directory_uri() . '/assets/js/base.js',
-    ['jquery'],
+    ['jquery' , 'gsap', 'observer'],
     '1.0.0',
     true
   );

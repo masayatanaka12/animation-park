@@ -132,24 +132,9 @@
 
 
 
-/* CSS *//* CSS */
 
 
 
-.sample__fv{
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.sample__fv p{
-  color: $c-black;
-  text-align: center;
-  font-size: 1.8rem;
-  letter-spacing: 0.3em;
-  font-family: $poppins;
-}
 
 /* 初期状態：少し下から、透明度0 */
 .fadeup {
