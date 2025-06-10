@@ -8,10 +8,10 @@
     </a>
     <div class="headerSample__ttlWrap">
       <span class="headerSample__num">
-        001
+        002
       </span>
       <h1 class="headerSample__ttl">
-        画像がフワッと表示
+        ジャンプするハンバーガーメニュー
       </h1>
     </div>
   </div>
@@ -20,25 +20,20 @@
 
 <div class="sample02">
   <div class="sample02__hamburger">
-    <button class="sample02__button">
+    <button 
+      class="sample02__button" 
+      type="button"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
       <div class="sample02__box">
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="text">CLOSE</span>
+        <span class="line" aria-hidden="true"></span>
+        <span class="line" aria-hidden="true"></span>
+        <span class="line" aria-hidden="true"></span>
+        <span class="text">MENU</span>
       </div>
     </button>
   </div>
 </div>
-<!-- 
-<div id="menu-btn-container">
-  <div id="menu-btn">
-    <label for="menu-checkbox" id="menu-label">
-      <div id="menu-bar"></div>
-    </label>
-  </div>
-</div> -->
-
-
 
 <?php get_footer(); ?>

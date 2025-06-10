@@ -36,6 +36,15 @@ function my_theme_scripts()
     true
   );
 
+  // Sample02 script
+  wp_enqueue_script(
+    'sample02',
+    get_stylesheet_directory_uri() . '/assets/js/sample02.js',
+    [],
+    '1.0.0',
+    true
+  );
+
   // Prism.js テーマ（CSS）
   wp_enqueue_style(
     'prism-theme',

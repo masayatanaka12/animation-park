@@ -142,64 +142,83 @@ document.querySelectorAll('.copy-btn').forEach(btn => {
 
 document.querySelectorAll('.topGalleryModal__item').forEach(tab => {
   tab.addEventListener('click', function() {
-    // すべてのタブからactiveを外す
-    document.querySelectorAll('.topGalleryModal__item').forEach(t => t.classList.remove('active'));
-    // すべてのコードパネルを非表示に
-    document.querySelectorAll('.topGalleryModal__code').forEach(c => c.style.display = 'none');
+    // Get the parent modal wrapper
+    const modalWrapper = this.closest('.topGalleryModal__wrapper');
+    if (!modalWrapper) return;
+
+    // Remove active class from all tabs in this modal
+    modalWrapper.querySelectorAll('.topGalleryModal__item').forEach(t => t.classList.remove('active'));
+    // Hide all code panels in this modal
+    modalWrapper.querySelectorAll('.topGalleryModal__code').forEach(c => c.style.display = 'none');
     
-    // クリックしたタブにactiveをつける
-    tab.classList.add('active');
-    // 同じdata-tabのコードを表示
-    const target = tab.getAttribute('data-tab');
-    document.querySelector('.topGalleryModal__code[data-tab="' + target + '"]').style.display = 'block';
+    // Add active class to clicked tab
+    this.classList.add('active');
+    // Show the corresponding code panel
+    const target = this.getAttribute('data-tab');
+    modalWrapper.querySelector(`.topGalleryModal__code[data-tab="${target}"]`).style.display = 'block';
   });
 });
 
 
-document.querySelectorAll('.galleryCard__btn--code').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    document.querySelector('.topGalleryModal').classList.add('active');
-    document.querySelector('.topGalleryModal__bg').classList.add('active');
-  });
-});
-
-
-
-
-// モーダルを開く
-// モーダルを開く
 document.querySelectorAll('.galleryCard__btn--code').forEach(function(btn) {
   btn.addEventListener('click', function() {
     const modal = document.querySelector('.topGalleryModal');
     const bg = document.querySelector('.topGalleryModal__bg');
-    modal.classList.remove('closing'); // 念のため外す
+    const modalId = this.getAttribute('data-modal');
+    
+    // Hide all modal wrappers first
+    document.querySelectorAll('.topGalleryModal__wrapper').forEach(wrapper => {
+      wrapper.style.display = 'none';
+    });
+    
+    // Show the selected modal wrapper
+    const selectedWrapper = document.querySelector(`.topGalleryModal__wrapper[data-modal-content="${modalId}"]`);
+    if (selectedWrapper) {
+      selectedWrapper.style.display = 'block';
+      
+      // Initialize tabs for this modal
+      const tabs = selectedWrapper.querySelectorAll('.topGalleryModal__item');
+      const codePanels = selectedWrapper.querySelectorAll('.topGalleryModal__code');
+      
+      // Reset all tabs and panels
+      tabs.forEach(tab => tab.classList.remove('active'));
+      codePanels.forEach(panel => panel.style.display = 'none');
+      
+      // Activate first tab and show its content
+      if (tabs.length > 0) {
+        tabs[0].classList.add('active');
+        const firstPanel = selectedWrapper.querySelector('.topGalleryModal__code[data-tab="0"]');
+        if (firstPanel) {
+          firstPanel.style.display = 'block';
+        }
+      }
+    }
+    
+    modal.classList.remove('closing');
     modal.classList.add('active');
     bg.classList.add('active');
   });
 });
 
-// モーダルを閉じる
-// topGalleryModal を閉じる際にスクロール位置をリセットする
-// topGalleryModal を閉じる際に 0.5 秒後に wrapper.scrollTop = 0 を実行する
-document.querySelectorAll('.topGalleryModal__close, .topGalleryModal__bg').forEach(function(elm) {
-  elm.addEventListener('click', function() {
-    const modal   = document.querySelector('.topGalleryModal');
-    const wrapper = modal.querySelector('.topGalleryModal__wrapper');
-    const bg      = document.querySelector('.topGalleryModal__bg');
-
-    // モーダルを閉じるクラス操作
-    modal.classList.remove('active');   // 開く用クラスを外す
-    modal.classList.add('closing');     // 閉じるアニメ用クラスを付ける
+// Close modal functionality
+document.querySelectorAll('.topGalleryModal__close').forEach(function(closeBtn) {
+  closeBtn.addEventListener('click', function() {
+    const modal = document.querySelector('.topGalleryModal');
+    const bg = document.querySelector('.topGalleryModal__bg');
+    
+    // First remove active class to trigger closing animation
+    modal.classList.remove('active');
+    // Then add closing class for the animation
+    modal.classList.add('closing');
     bg.classList.remove('active');
-
-    // 0.5秒後にスクロール位置をリセットし、closing クラスを外す
-    setTimeout(function() {
-      if (wrapper) {
-        wrapper.scrollTop = 0;
-      }
+    
+    // Wait for animation to complete before hiding
+    setTimeout(() => {
       modal.classList.remove('closing');
-      // 必要ならここで display: none; をつけてもOK
-    }, 500); // 0.5s → 閉じるアニメーションの所要時間に合わせる
+      document.querySelectorAll('.topGalleryModal__wrapper').forEach(wrapper => {
+        wrapper.style.display = 'none';
+      });
+    }, 700);
   });
 });
 
@@ -285,49 +304,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-const body = document.body;
-const bgColorsBody = ["#ffb457", "#ff96bd", "#9999fb", "#ffe797", "#cffff1"];
-const menu = body.querySelector(".menu");
-const menuItems = menu.querySelectorAll(".menu__item");
-const menuBorder = menu.querySelector(".menu__border");
-let activeItem = menu.querySelector(".active");
-
-function clickItem(item, index) {
-
-    menu.style.removeProperty("--timeOut");
-    
-    if (activeItem == item) return;
-    
-    if (activeItem) {
-        activeItem.classList.remove("active");
-    }
-
-    
-    item.classList.add("active");
-    body.style.backgroundColor = bgColorsBody[index];
-    activeItem = item;
-    offsetMenuBorder(activeItem, menuBorder);
-    
-    
-}
-
-function offsetMenuBorder(element, menuBorder) {
-
-    const offsetActiveItem = element.getBoundingClientRect();
-    const left = Math.floor(offsetActiveItem.left - menu.offsetLeft - (menuBorder.offsetWidth  - offsetActiveItem.width) / 2) +  "px";
-    menuBorder.style.transform = `translate3d(${left}, 0 , 0)`;
-
-}
-
-offsetMenuBorder(activeItem, menuBorder);
-
-menuItems.forEach((item, index) => {
-
-    item.addEventListener("click", () => clickItem(item, index));
-    
-})
-
-window.addEventListener("resize", () => {
-    offsetMenuBorder(activeItem, menuBorder);
-    menu.style.setProperty("--timeOut", "none");
-});
